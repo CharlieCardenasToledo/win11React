@@ -31,9 +31,24 @@ const EXPLORER_LABEL_KEYS = {
   Windows: "explorer.label.windows",
   Github: "explorer.label.githubFolder",
   Blue: "explorer.label.blueUser",
+  "Material Docente": "explorer.label.materialDocente",
+  "01-FT-06-SIM-MC": "explorer.label.subject01",
+  "02-LTI-05A-458-PMSBD-MC": "explorer.label.subject02",
+  "03-PP-07-HCI-ASC": "explorer.label.subject03",
+  "04-GA-GEA-F-10-ED-MC": "explorer.label.subject04",
+  "05-LTI-05A-300-SGBD-ASC": "explorer.label.subject05",
+  "06-LTI-05A-INS-IS-ASC": "explorer.label.subject06",
+  "07-PP-08-AIPTI": "explorer.label.subject07",
+  "Material de clase": "explorer.label.classMaterial",
+  Practica: "explorer.label.practice",
+  Tarea: "explorer.label.homework",
 };
 
 const getExplorerLabel = (t, label) => {
+  const weekMatch = /^Semana\s+(\d{2})$/i.exec(label);
+  if (weekMatch) {
+    return t("explorer.weekLabel", { num: weekMatch[1] });
+  }
   const key = EXPLORER_LABEL_KEYS[label];
   return key ? t(key) : label;
 };
@@ -201,6 +216,13 @@ export const Explorer = () => {
     setPath(files.cpath);
     setShText("");
   }, [files.cpath]);
+
+  useEffect(() => {
+    if (wnapp.dir != null) {
+      dispatch({ type: "FILEDIR", payload: wnapp.dir });
+      dispatch({ type: "OPENDIR", payload: null });
+    }
+  }, [wnapp.dir, dispatch]);
 
   return (
     <div
@@ -414,6 +436,11 @@ const NavPane = ({}) => {
           icon="onedrive"
           title={t("explorer.oneDrive")}
           spid="%onedrive%"
+        />
+        <Dropdown
+          icon="docs"
+          title={t("explorer.materialDocente")}
+          spid="%material_docente%"
         />
         <Dropdown icon="thispc" title={t("explorer.thisPc")} action="" isDropped>
           <Dropdown icon="desk" title={t("explorer.desktop")} spid="%desktop%" />

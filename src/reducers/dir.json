@@ -117,7 +117,2103 @@
                   "OneNote notebooks": {},
                   "OnScreen Control": {},
                   "Outlook Files": {},
-                  "Visual Studio": {}
+                  "Visual Studio": {},
+                  "Material Docente": {
+                    "type": "folder",
+                    "name": "Material Docente",
+                    "info": {
+                      "spid": "%material_docente%",
+                      "icon": "docs"
+                    },
+                    "data": {
+                      "01-FT-06-SIM-MC": {
+                        "type": "folder",
+                        "name": "01-FT-06-SIM-MC",
+                        "info": {
+                          "spid": "%subject_01%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "02-LTI-05A-458-PMSBD-MC": {
+                        "type": "folder",
+                        "name": "02-LTI-05A-458-PMSBD-MC",
+                        "info": {
+                          "spid": "%subject_02%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "03-PP-07-HCI-ASC": {
+                        "type": "folder",
+                        "name": "03-PP-07-HCI-ASC",
+                        "info": {
+                          "spid": "%subject_03%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "04-GA-GEA-F-10-ED-MC": {
+                        "type": "folder",
+                        "name": "04-GA-GEA-F-10-ED-MC",
+                        "info": {
+                          "spid": "%subject_04%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "05-LTI-05A-300-SGBD-ASC": {
+                        "type": "folder",
+                        "name": "05-LTI-05A-300-SGBD-ASC",
+                        "info": {
+                          "spid": "%subject_05%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "06-LTI-05A-INS-IS-ASC": {
+                        "type": "folder",
+                        "name": "06-LTI-05A-INS-IS-ASC",
+                        "info": {
+                          "spid": "%subject_06%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "07-PP-08-AIPTI": {
+                        "type": "folder",
+                        "name": "07-PP-08-AIPTI",
+                        "info": {
+                          "spid": "%subject_07%",
+                          "icon": "folder3d"
+                        },
+                        "data": {
+                          "Semana 01": {
+                            "type": "folder",
+                            "name": "Semana 01",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 02": {
+                            "type": "folder",
+                            "name": "Semana 02",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 03": {
+                            "type": "folder",
+                            "name": "Semana 03",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 04": {
+                            "type": "folder",
+                            "name": "Semana 04",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 05": {
+                            "type": "folder",
+                            "name": "Semana 05",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 06": {
+                            "type": "folder",
+                            "name": "Semana 06",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 07": {
+                            "type": "folder",
+                            "name": "Semana 07",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 08": {
+                            "type": "folder",
+                            "name": "Semana 08",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 09": {
+                            "type": "folder",
+                            "name": "Semana 09",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 10": {
+                            "type": "folder",
+                            "name": "Semana 10",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 11": {
+                            "type": "folder",
+                            "name": "Semana 11",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 12": {
+                            "type": "folder",
+                            "name": "Semana 12",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 13": {
+                            "type": "folder",
+                            "name": "Semana 13",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 14": {
+                            "type": "folder",
+                            "name": "Semana 14",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 15": {
+                            "type": "folder",
+                            "name": "Semana 15",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          },
+                          "Semana 16": {
+                            "type": "folder",
+                            "name": "Semana 16",
+                            "data": {
+                              "Material de clase": {
+                                "type": "folder",
+                                "name": "Material de clase"
+                              },
+                              "Practica": {
+                                "type": "folder",
+                                "name": "Practica"
+                              },
+                              "Tarea": {
+                                "type": "folder",
+                                "name": "Tarea"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
               "Downloads": {
@@ -150,8 +2246,8 @@
                   "icon": "pics"
                 },
                 "data": {
-                  "DCIM": {},
                   "2007": {},
+                  "DCIM": {},
                   "High School": {
                     "data": {
                       "Did you really expected that": {}

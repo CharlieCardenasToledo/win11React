@@ -24,6 +24,7 @@ export const APP_NAME_KEYS = {
   Movies: "app.movies",
   Xbox: "app.xbox",
   Office: "app.office",
+  "PowerPoint Reader": "app.powerpointReader",
   Narrator: "app.narrator",
   News: "app.news",
   Notepad: "app.notepad",
@@ -35,7 +36,6 @@ export const APP_NAME_KEYS = {
   Photos: "app.photos",
   Pinterest: "app.pinterest",
   Security: "app.security",
-  Spotify: "app.spotify",
   Sharepoint: "app.sharepoint",
   Skype: "app.skype",
   "Snipping Tool": "app.snippingTool",
@@ -52,6 +52,14 @@ export const APP_NAME_KEYS = {
   Github: "app.github",
   Unescape: "app.unescape",
   Discord: "app.discord",
+  "Material Docente": "app.materialDocente",
+  "01-FT-06-SIM-MC": "app.subject01",
+  "02-LTI-05A-458-PMSBD-MC": "app.subject02",
+  "03-PP-07-HCI-ASC": "app.subject03",
+  "04-GA-GEA-F-10-ED-MC": "app.subject04",
+  "05-LTI-05A-300-SGBD-ASC": "app.subject05",
+  "06-LTI-05A-INS-IS-ASC": "app.subject06",
+  "07-PP-08-AIPTI": "app.subject07",
 };
 
 export const getLocalizedAppName = (name, t) => {

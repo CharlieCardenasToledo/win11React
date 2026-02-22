@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Icon } from "../../utils/general";
@@ -7,17 +7,20 @@ import { getLocalizedAppName } from "../../utils/i18nLabels";
 export const StartMenu = () => {
   const { t } = useTranslation();
   const { align } = useSelector((state) => state.taskbar);
-  const start = useSelector((state) => {
-    var arr = state.startmenu,
-      ln = (6 - (arr.pnApps.length % 6)) % 6;
-
-    for (var i = 0; i < ln; i++) {
-      arr.pnApps.push({
-        empty: true,
-      });
+  const startState = useSelector((state) => state.startmenu);
+  const appState = useSelector((state) => state.apps);
+  const start = useMemo(() => {
+    const arr = {
+      ...startState,
+      pnApps: [...startState.pnApps],
+      rcApps: startState.rcApps.map((app) => ({ ...app })),
+    };
+    const ln = (6 - (arr.pnApps.length % 6)) % 6;
+    for (let i = 0; i < ln; i++) {
+      arr.pnApps.push({ empty: true });
     }
 
-    for (i = 0; i < arr.rcApps.length; i++) {
+    for (let i = 0; i < arr.rcApps.length; i++) {
       if (arr.rcApps[i].lastUsed < 0) {
         arr.rcApps[i].lastUsed = t("start.recentlyAdded");
       } else if (arr.rcApps[i].lastUsed < 10) {
@@ -33,32 +36,22 @@ export const StartMenu = () => {
       }
     }
 
-    var allApps = [],
-      tmpApps = Object.keys(state.apps)
-        .filter((x) => x != "hz")
-        .map((key) => {
-          return state.apps[key];
-        });
+    const tmpApps = Object.keys(appState)
+      .filter((x) => x != "hz")
+      .map((key) => appState[key])
+      .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
 
-    tmpApps.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
-
-    for (i = 0; i < 27; i++) {
-      allApps[i] = [];
-    }
-
-    for (i = 0; i < tmpApps.length; i++) {
-      var t1 = tmpApps[i].name.trim().toUpperCase().charCodeAt(0);
-      if (t1 > 64 && t1 < 91) {
-        allApps[t1 - 64].push(tmpApps[i]);
-      } else {
-        allApps[0].push(tmpApps[i]);
-      }
+    const allApps = Array.from({ length: 27 }, () => []);
+    for (let i = 0; i < tmpApps.length; i++) {
+      const t1 = tmpApps[i].name.trim().toUpperCase().charCodeAt(0);
+      if (t1 > 64 && t1 < 91) allApps[t1 - 64].push(tmpApps[i]);
+      else allApps[0].push(tmpApps[i]);
     }
 
     arr.contApps = allApps;
     arr.allApps = tmpApps;
     return arr;
-  });
+  }, [startState, appState, t]);
 
   const [query, setQuery] = useState("");
   const [match, setMatch] = useState({});
@@ -103,13 +96,18 @@ export const StartMenu = () => {
   useEffect(() => {
     if (query.length) {
       for (var i = 0; i < start.allApps.length; i++) {
-        if (start.allApps[i].name.toLowerCase().includes(query.toLowerCase())) {
+        const app = start.allApps[i];
+        const localizedName = getLocalizedAppName(app.name, t);
+        if (
+          app.name.toLowerCase().includes(query.toLowerCase()) ||
+          localizedName.toLowerCase().includes(query.toLowerCase())
+        ) {
           setMatch(start.allApps[i]);
           break;
         }
       }
     }
-  }, [query]);
+  }, [query, start.allApps, t]);
 
   const userName = useSelector((state) => state.setting.person.name);
 

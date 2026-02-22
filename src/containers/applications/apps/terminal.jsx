@@ -21,21 +21,31 @@ export const WnTerminal = () => {
   const [pwd, setPwd] = useState("C:\\Users\\Blue");
   const [lastCmd, setLsc] = useState(0);
   const [wntitle, setWntitle] = useState("Terminal");
+  const [ipDetails, setIpDetails] = useState({
+    ip: "__network_error",
+    network: "__kindly check internet connection",
+    city: "",
+    region: "",
+    org: "",
+    postal: "",
+  });
 
   const dispatch = useDispatch();
 
-  let IpDetails = [];
   const getIPDetails = async () => {
     try {
-      const response = await fetch("https://ipapi.co/json")
-        .then((response) => response.json())
-        .then((data) => {
-          IpDetails.push(data);
-        });
+      const response = await fetch("https://ipapi.co/json");
+      const data = await response.json();
+      setIpDetails({
+        ip: data.ip || "",
+        network: data.network || "",
+        city: data.city || "",
+        region: data.region || "",
+        org: data.org || "",
+        postal: data.postal || "",
+      });
     } catch (error) {
-      console.log(error);
-      // handling the error
-      IpDetails.push({
+      setIpDetails({
         ip: "__network_error",
         network: "__kindly check internet connection",
         city: "",
@@ -336,7 +346,7 @@ export const WnTerminal = () => {
       }
     } else if (type == "") {
     } else if (type == "ipconfig") {
-      const IP = IpDetails[0];
+      const IP = ipDetails;
       tmpStack.push(t("terminal.ipconfig.title"));
       tmpStack.push("");
       tmpStack.push(`${t("terminal.ipconfig.ipv6")} ${IP.ip}`);
@@ -493,12 +503,14 @@ export const WnTerminal = () => {
 
   useEffect(() => {
     getIPDetails();
+  }, []);
 
+  useEffect(() => {
     if (wnapp.dir && wnapp.dir != pwd) {
       setPwd(wnapp.dir);
       dispatch({ type: "OPENTERM", payload: null });
     }
-  });
+  }, [wnapp.dir, pwd, dispatch]);
 
   return (
     <div

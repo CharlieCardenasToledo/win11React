@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import * as Actions from "../../actions";
@@ -15,17 +15,17 @@ export * from "./widget";
 
 export const DesktopApp = () => {
   const { t } = useTranslation();
-  const deskApps = useSelector((state) => {
-    var arr = { ...state.desktop };
-    var tmpApps = [...arr.apps];
+  const desktop = useSelector((state) => state.desktop);
+  const deskApps = useMemo(() => {
+    const arr = { ...desktop };
+    const tmpApps = [...arr.apps];
 
     if (arr.sort == "name") {
       tmpApps.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
     } else if (arr.sort == "size") {
       tmpApps.sort((a, b) => {
-        var anm = a.name,
-          bnm = b.name;
-
+        const anm = a.name;
+        const bnm = b.name;
         return anm[bnm.charCodeAt(0) % anm.length] >
           bnm[anm.charCodeAt(0) % bnm.length]
           ? 1
@@ -33,11 +33,10 @@ export const DesktopApp = () => {
       });
     } else if (arr.sort == "date") {
       tmpApps.sort((a, b) => {
-        var anm = a.name,
-          bnm = b.name;
-        var anml = anm.length,
-          bnml = bnm.length;
-
+        const anm = a.name;
+        const bnm = b.name;
+        const anml = anm.length;
+        const bnml = bnm.length;
         return anm[(bnml * 13) % anm.length] > bnm[(anml * 17) % bnm.length]
           ? 1
           : -1;
@@ -46,7 +45,7 @@ export const DesktopApp = () => {
 
     arr.apps = tmpApps;
     return arr;
-  });
+  }, [desktop]);
   const dispatch = useDispatch();
 
   return (
@@ -96,10 +95,10 @@ export const BandPane = () => {
         <Icon
           className="hvlight"
           width={17}
-          click="SPOTIFY"
+          click="EXPLORER"
           payload="togg"
           open="true"
-          src="spotify"
+          src="explorer"
         />
         <Icon
           className="hvlight"

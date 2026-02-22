@@ -148,6 +148,12 @@ const apps = [
     type: "app",
   },
   {
+    name: "PowerPoint Reader",
+    icon: "powerpoint",
+    type: "app",
+    action: "POWERPOINT",
+  },
+  {
     name: "Narrator",
     icon: "narrator",
     type: "app",
@@ -204,12 +210,6 @@ const apps = [
     name: "Security",
     icon: "security",
     type: "app",
-  },
-  {
-    name: "Spotify",
-    icon: "spotify",
-    type: "app",
-    action: "SPOTIFY",
   },
   {
     name: "Sharepoint",
@@ -299,6 +299,62 @@ const apps = [
     icon: "discord",
     type: "app",
     action: "DISCORD",
+  },
+  {
+    name: "Material Docente",
+    icon: "matdoc",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%material_docente%",
+  },
+  {
+    name: "01-FT-06-SIM-MC",
+    icon: "subj01",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_01%",
+  },
+  {
+    name: "02-LTI-05A-458-PMSBD-MC",
+    icon: "subj02",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_02%",
+  },
+  {
+    name: "03-PP-07-HCI-ASC",
+    icon: "subj03",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_03%",
+  },
+  {
+    name: "04-GA-GEA-F-10-ED-MC",
+    icon: "subj04",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_04%",
+  },
+  {
+    name: "05-LTI-05A-300-SGBD-ASC",
+    icon: "subj05",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_05%",
+  },
+  {
+    name: "06-LTI-05A-INS-IS-ASC",
+    icon: "subj06",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_06%",
+  },
+  {
+    name: "07-PP-08-AIPTI",
+    icon: "subj07",
+    type: "app",
+    action: "OPENDIR",
+    payload: "%subject_07%",
   },
 ];
 

@@ -71,6 +71,21 @@ const appReducer = (state = defState, action) => {
     obj.z = tmpState.hz;
     tmpState["terminal"] = obj;
     return tmpState;
+  } else if (action.type == "OPENDIR") {
+    var obj = { ...tmpState["explorer"] };
+    obj.dir = action.payload;
+    if (action.payload == null) {
+      tmpState["explorer"] = obj;
+      return tmpState;
+    }
+
+    obj.size = "full";
+    obj.hide = false;
+    obj.max = true;
+    tmpState.hz += 1;
+    obj.z = tmpState.hz;
+    tmpState["explorer"] = obj;
+    return tmpState;
   } else if (action.type == "ADDAPP") {
     tmpState[action.payload.icon] = action.payload;
     tmpState[action.payload.icon].size = "full";
