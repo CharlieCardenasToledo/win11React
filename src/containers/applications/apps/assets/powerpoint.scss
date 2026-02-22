@@ -11,11 +11,24 @@
   border-bottom: 1px solid var(--ppt-border);
 }
 
+.pptModeBtn {
+  border: 1px solid var(--ppt-border);
+  background: #fff;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
 .pptThumbs {
   width: 230px;
   background: #f2f5fb;
   border-right: 1px solid var(--ppt-border);
   padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  min-height: 0;
 }
 
 .pptThumb {
@@ -27,11 +40,20 @@
   text-align: left;
   padding: 10px;
   cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
 }
 
 .pptThumb[data-active="true"] {
-  border-color: var(--ppt-accent);
-  box-shadow: inset 0 0 0 1px var(--ppt-accent);
+  border-color: #c93c1b;
+  box-shadow:
+    inset 0 0 0 2px #d24726,
+    0 10px 22px rgba(210, 71, 38, 0.22);
+  transform: translateY(-1px);
+}
+
+.pptThumb:hover {
+  border-color: #c9d2e3;
+  box-shadow: 0 6px 16px rgba(31, 42, 68, 0.1);
 }
 
 .pptThumbNum {
@@ -46,6 +68,110 @@
   font-weight: 600;
   color: var(--ppt-text);
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pptThumbMini {
+  margin-top: 6px;
+  border: 1px solid #d6dce8;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.pptThumbMiniAccent {
+  width: 5px;
+  background: linear-gradient(180deg, #f06b46, var(--ppt-accent));
+  flex-shrink: 0;
+}
+
+.pptThumbFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  background: #ffffff;
+}
+
+.pptThumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #ffffff;
+}
+
+.pptThumbMiniBody {
+  padding: 6px 7px 5px;
+  min-width: 0;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+}
+
+.pptThumbMiniTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: #1f2a44;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pptThumbMiniSub {
+  margin-top: 4px;
+  font-size: 9px;
+  color: #64748b;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pptThumbMiniLine {
+  margin-top: 4px;
+  font-size: 8px;
+  color: #475569;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pptThumbMiniPage {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.78);
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
+
+.pptThumb[data-active="true"] .pptThumbMini {
+  border-color: #d24726;
+  box-shadow: inset 0 0 0 1px rgba(210, 71, 38, 0.35);
+}
+
+.pptThumb[data-active="true"] .pptThumbMiniPage {
+  background: rgba(210, 71, 38, 0.92);
+  border-color: rgba(255, 255, 255, 0.65);
+  color: #fff;
 }
 
 .pptStage {
@@ -56,6 +182,19 @@
   align-items: center;
   justify-content: center;
   padding: 18px;
+  min-height: 0;
+}
+
+.restWindow {
+  min-height: 0;
+}
+
+.restWindow[data-present="true"] .pptThumbs {
+  display: none;
+}
+
+.restWindow[data-present="true"] .pptStage {
+  padding: 0;
 }
 
 .pptSlide {
@@ -67,6 +206,26 @@
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(25, 40, 70, 0.15);
   display: flex;
+}
+
+.pptFrame {
+  width: min(1200px, 100%);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: 100%;
+  min-height: 320px;
+  background: #111827;
+  border: 1px solid var(--ppt-border);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(25, 40, 70, 0.15);
+}
+
+.restWindow[data-present="true"] .pptFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .pptAccent {
@@ -107,6 +266,13 @@
   margin-top: 14px;
   display: flex;
   gap: 8px;
+}
+
+.restWindow[data-present="true"] .pptControls {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  margin-top: 0;
 }
 
 .pptControls button {

@@ -11,21 +11,8 @@ var { taskbar, desktop, pinned, recent } = {
   desktop: (localStorage.getItem("desktop") &&
     JSON.parse(localStorage.getItem("desktop"))) || [
     "Material Docente",
-    "01-FT-06-SIM-MC",
-    "02-LTI-05A-458-PMSBD-MC",
-    "03-PP-07-HCI-ASC",
-    "04-GA-GEA-F-10-ED-MC",
-    "05-LTI-05A-300-SGBD-ASC",
-    "06-LTI-05A-INS-IS-ASC",
-    "07-PP-08-AIPTI",
     "Blue",
-    "Unescape",
     "Recycle Bin",
-    "File Explorer",
-    "Store",
-    "Browser",
-    "Github",
-    "Buy me a coffee",
   ],
   pinned: (localStorage.getItem("pinned") &&
     JSON.parse(localStorage.getItem("pinned"))) || [
@@ -71,9 +58,15 @@ desktop = desktop.filter((x) => x !== "Spotify");
 pinned = pinned.filter((x) => x !== "Spotify");
 recent = recent.filter((x) => x !== "Spotify");
 
-if (desktop.includes("Buy me a coffee") === false) {
-  desktop.push("Buy me a coffee");
+if (!taskbar.includes("Material Docente")) {
+  taskbar.unshift("Material Docente");
 }
+
+const desktopAllowed = ["Material Docente", "Recycle Bin", "Blue"];
+desktop = desktop.filter((x) => desktopAllowed.includes(x));
+desktopAllowed.forEach((name) => {
+  if (!desktop.includes(name)) desktop.push(name);
+});
 
 const subjectApps = [
   "Material Docente",
@@ -87,7 +80,6 @@ const subjectApps = [
 ];
 
 subjectApps.forEach((name) => {
-  if (!desktop.includes(name)) desktop.push(name);
   if (!pinned.includes(name)) pinned.unshift(name);
 });
 

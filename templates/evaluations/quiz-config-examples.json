@@ -1,0 +1,24 @@
+{
+  "quiz": {
+    "title": "Mi Cuestionario - [CAMBIAR TÍTULO]",
+    "description": "Descripción del cuestionario. Explica el propósito y las instrucciones.",
+    "quiz_type": "assignment",
+    "time_limit": 60,
+    "allowed_attempts": 1,
+    "scoring_policy": "keep_highest",
+    "cant_go_back": false,
+    "shuffle_answers": true,
+    "show_correct_answers": "always",
+    "show_correct_answers_last_attempt": false,
+    "one_question_at_a_time": false,
+    "require_lockdown_browser": false,
+    "require_lockdown_browser_for_results": false,
+    "access_code": "",
+    "ip_filter": "",
+    "due_at": null,
+    "lock_at": null,
+    "unlock_at": null,
+    "published": false,
+    "points_possible": 10
+  }
+}

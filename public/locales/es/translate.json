@@ -424,5 +424,8 @@
   "explorer.weekLabel": "Semana {{num}}",
   "explorer.label.classMaterial": "Material de clase",
   "explorer.label.practice": "Practica",
-  "explorer.label.homework": "Tarea"
+  "explorer.label.homework": "Tarea",
+  "ppt.deckLoaded": "Presentacion cargada",
+  "ppt.presentMode": "Modo presentacion",
+  "ppt.exitPresentMode": "Salir de presentacion"
 }

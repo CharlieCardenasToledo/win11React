@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Presentación académica UIDE - Fundamentos de Simulación Semana 1">
+  <title>Fundamentos y Paradigmas de Simulación - Semana 1</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23910048' d='M10 10h80v80H10z'/><text x='50' y='50' font-family='Arial' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>UIDE</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <link rel="stylesheet" href="/templates/css/presentacion.css">
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{'uide-primary':'#910048','uide-secondary':'#23356E','uide-accent':'#E9AB21','uide-dark':'#0f1419'}}}}</script>
+  <script>if(localStorage.theme==='dark'||(localStorage.theme!=='light'&&!('theme'in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark');if(!('theme'in localStorage)){localStorage.theme='light';}}</script>
+</head>
+<body class="min-h-screen text-slate-900 dark:text-white bg-slate-50 dark:bg-uide-dark overflow-hidden select-text transition-colors duration-500">
+  <div class="fixed top-2 left-2 sm:top-4 sm:left-4 md:top-6 md:left-6 lg:top-8 lg:left-8 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center"><img src="/templates/images/Logo%20UIDE.png" alt="UIDE Logo" class="w-full h-full object-contain"></div>
+  <button id="theme-toggle" aria-label="Cambiar Tema"><i class="fas fa-sun block dark:hidden"></i><i class="fas fa-moon hidden dark:block"></i></button>
+  <div class="presentation-container relative w-full h-screen"><div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 active" data-title="Carátula - Fundamentos y Paradigmas de Simulación" aria-hidden="false">
+    <div class="max-w-5xl w-full px-2 sm:px-4">
+      <div class="text-center mb-6 sm:mb-8">
+        <h3 class="text-slate-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">Presentación Semana 1</h3>
+        <h2 class="text-uide-primary dark:text-uide-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2 leading-tight">Fundamentos y Paradigmas de Simulación</h2>
+        <p class="text-slate-800 dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-medium mt-2">FT-06-SIM - Sexto Nivel</p>
+        <p class="text-slate-600 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl mt-2">Simulación</p>
+      </div>
+      <div class="text-center my-6 sm:my-8">
+        <p class="text-slate-800 dark:text-white text-lg sm:text-xl md:text-2xl font-semibold">Prof. Charlie Cárdenas Toledo, M.Sc.</p>
+        <p class="text-uide-accent text-base sm:text-lg md:text-xl font-medium mt-2">Octubre 2025 - Febrero 2026</p>
+      </div>
+      <div class="text-center mt-6 sm:mt-8 md:mt-10 p-4 sm:p-6 md:p-8 bg-slate-100 dark:bg-black/40 rounded-xl sm:rounded-2xl border border-slate-300 dark:border-white/10">
+        <h3 class="text-uide-accent text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4"><i class="fas fa-graduation-cap"></i> Introducción a la Simulación</h3>
+        <p class="text-slate-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4"><strong>Semana 1</strong> - Definición e Importancia - Tipos de Sistemas - Ventajas y Limitaciones</p>
+        <p class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm md:text-base italic">Introducción a la asignatura y metodología de trabajo</p>
+      </div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Actividades y Herramientas - Semana 1" aria-hidden="true">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2"><i class="fas fa-clipboard-list text-uide-accent"></i> Actividades Calificadas y Herramientas</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto w-full px-2">
+      <div class="space-y-3 sm:space-y-4">
+        <div class="p-4 sm:p-5 md:p-6 bg-white dark:bg-black/40 rounded-lg sm:rounded-xl border-2 border-uide-primary">
+          <h3 class="text-uide-accent text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6"><i class="fas fa-clipboard-check"></i> Actividades Calificadas</h3>
+          <div class="space-y-3 sm:space-y-4">
+            <div class="bg-green-500/15 p-3 sm:p-4 rounded-lg border-l-4 border-green-400"><div class="flex justify-between items-center mb-2"><span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-semibold"><i class="fas fa-flask"></i> PE-1.1: Taller Clasificación Sistemas</span><span class="text-uide-accent text-sm sm:text-base font-bold">2.25 pts</span></div><p class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm">Clasificación de 6 casos prácticos de sistemas</p></div>
+            <div class="bg-yellow-600/15 p-3 sm:p-4 rounded-lg border-l-4 border-uide-accent"><div class="flex justify-between items-center mb-2"><span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-semibold"><i class="fas fa-file-alt"></i> TA-1.1: Ficha Lectura + Mapa Conceptos</span><span class="text-uide-accent text-sm sm:text-base font-bold">2.25 pts</span></div><p class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm">Análisis de lecturas y síntesis conceptual</p></div>
+            <div class="bg-yellow-600/20 p-3 sm:p-4 rounded-lg border-2 border-uide-accent"><div class="flex justify-between items-center"><span class="text-uide-accent font-bold"><i class="fas fa-star"></i> Total Semana 1</span><span class="text-uide-accent text-xl font-bold">4.5 pts</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 sm:p-5 md:p-6 bg-blue-50 dark:bg-[rgba(35,53,110,0.3)] rounded-lg sm:rounded-xl border-2 border-blue-400">
+        <h3 class="text-blue-400 text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6"><i class="fas fa-tools"></i> Recursos de Aprendizaje</h3>
+        <div class="space-y-2 sm:space-y-3">
+          <div class="bg-green-500/10 p-2 sm:p-3 rounded-lg border-l-3 border-green-400"><i class="fas fa-book-open text-green-400 mr-2"></i><span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-medium">Compendio Semana 1</span></div>
+          <div class="bg-green-500/10 p-2 sm:p-3 rounded-lg border-l-3 border-green-400"><i class="fas fa-file-medical text-green-400 mr-2"></i><span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-medium">6 Casos de Estudio Reales</span></div>
+          <div class="bg-green-500/10 p-2 sm:p-3 rounded-lg border-l-3 border-green-400"><i class="fas fa-chalkboard-teacher text-green-400 mr-2"></i><span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-medium">Material de Lectura y Videos</span></div>
+        </div>
+      </div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Resultados de Aprendizaje - Semana 1" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2"><i class="fas fa-bullseye text-uide-accent"></i> Resultados de Aprendizaje</h2>
+    <ul class="max-w-5xl mx-auto space-y-4 text-base sm:text-lg md:text-xl leading-relaxed list-none px-4">
+    <li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Comprender la <span class="text-uide-accent font-semibold">definición e importancia</span> de la simulación.</li>
+    <li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Identificar <span class="text-uide-accent font-semibold">tipos de sistemas y modelos</span>.</li>
+    <li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Reconocer <span class="text-uide-accent font-semibold">ventajas y limitaciones</span> de la simulación.</li>
+    <li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Clasificar sistemas según sus características.</li>
+    <li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Evaluar casos reales y su viabilidad de simulación.</li>
+    </ul></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Agenda - Semana 1" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-center text-slate-900 dark:text-white px-2"><i class="fas fa-chart-line text-uide-accent"></i> Agenda</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto w-full px-2">
+      <div class="bg-white dark:bg-black/30 border border-slate-300 dark:border-white/15 rounded-xl p-4"><h3 class="text-uide-accent font-bold">1. ¿Qué es Simulación?</h3><p>Definiciones y aplicaciones.</p></div>
+      <div class="bg-white dark:bg-black/30 border border-slate-300 dark:border-white/15 rounded-xl p-4"><h3 class="text-uide-accent font-bold">2. Importancia y Ventajas</h3><p>Beneficios y casos de uso.</p></div>
+      <div class="bg-white dark:bg-black/30 border border-slate-300 dark:border-white/15 rounded-xl p-4"><h3 class="text-uide-accent font-bold">3. Tipos de Sistemas</h3><p>Clasificación de modelos.</p></div>
+      <div class="bg-white dark:bg-black/30 border border-slate-300 dark:border-white/15 rounded-xl p-4"><h3 class="text-uide-accent font-bold">4. Limitaciones</h3><p>Cuándo no simular.</p></div>
+      <div class="bg-white dark:bg-black/30 border border-slate-300 dark:border-white/15 rounded-xl p-4"><h3 class="text-uide-accent font-bold">5. Caso de Estudio</h3><p>Clínica de Ginecología.</p></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="¿Qué es Simulación?" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-question-circle text-uide-accent"></i> ¿Qué es Simulación?</h2>
+    <div class="max-w-6xl mx-auto w-full px-2">
+      <div class="bg-uide-primary/10 border-l-4 border-uide-primary rounded-lg p-4 mb-6">"La simulación es el proceso de diseñar un modelo de un sistema real y llevar a término experiencias con él..." - Shannon</div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div><h3 class="text-uide-accent text-xl font-semibold mb-2">En palabras simples</h3><p>Una copia virtual para experimentar sin riesgos.</p></div><div><h3 class="text-uide-accent text-xl font-semibold mb-2">Ejemplos</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Videojuegos</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Simuladores de vuelo</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Pronóstico del clima</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Crash tests</li></ul></div></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="¿Por qué es Importante la Simulación?" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-chart-line text-uide-accent"></i> ¿Por qué es Importante la Simulación?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto w-full px-2">
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold"><i class="fas fa-shield-alt"></i> Sin Riesgos</h3><p>Experimentar sin consecuencias reales.</p></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold"><i class="fas fa-dollar-sign"></i> Económico</h3><p>Ahorro en recursos y tiempo.</p></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold"><i class="fas fa-question"></i> ¿Qué pasaría si...?</h3><p>Evaluación de escenarios.</p></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold"><i class="fas fa-cogs"></i> Sistemas Complejos</h3><p>Análisis de sistemas no triviales.</p></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold"><i class="fas fa-clock"></i> Control del Tiempo</h3><p>Acelerar o ralentizar procesos.</p></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold"><i class="fas fa-chart-bar"></i> Optimización</h3><p>Probar antes de cambiar en real.</p></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Tipos de Sistemas y Modelos" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-sitemap text-uide-accent"></i> Tipos de Sistemas y Modelos</h2>
+    <div class="max-w-6xl mx-auto w-full px-2 overflow-x-auto">
+    <table class="w-full border-collapse text-sm sm:text-base">
+      <thead><tr class="bg-uide-primary/20"><th class="border p-2">Clasificación</th><th class="border p-2">Tipo A</th><th class="border p-2">Tipo B</th></tr></thead>
+      <tbody>
+      <tr><td class="border p-2"><strong>Naturaleza del Tiempo</strong></td><td class="border p-2">Discreto</td><td class="border p-2">Continuo</td></tr>
+      <tr><td class="border p-2"><strong>Aleatoriedad</strong></td><td class="border p-2">Determinístico</td><td class="border p-2">Estocástico</td></tr>
+      <tr><td class="border p-2"><strong>Propósito</strong></td><td class="border p-2">Físico</td><td class="border p-2">Matemático</td></tr>
+      <tr><td class="border p-2"><strong>Análisis</strong></td><td class="border p-2">Analítico</td><td class="border p-2">Numérico</td></tr>
+      </tbody>
+    </table></div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Limitaciones de la Simulación" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-exclamation-triangle text-uide-accent"></i> Limitaciones de la Simulación</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto w-full px-2">
+      <div><h3 class="text-uide-accent text-xl font-semibold mb-2">Cuándo NO simular</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Solución analítica disponible</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Experimentación directa viable</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Falta de datos</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Recursos insuficientes</li></ul></div>
+      <div><h3 class="text-uide-accent text-xl font-semibold mb-2">Desafíos comunes</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Complejidad del modelo</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Validación</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Interpretación</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Tiempo de desarrollo</li></ul></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Caso de Estudio: Clínica de Ginecología" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-hospital text-uide-accent"></i> Caso de Estudio: Clínica de Ginecología</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto w-full px-2">
+      <div><h3 class="text-uide-accent text-xl font-semibold mb-2">Situación</h3><p>Una clínica en Malasia presenta tiempos de espera altos y aglomeraciones.</p><h3 class="text-uide-accent text-xl font-semibold mt-4 mb-2">Recursos</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>10 consultorios</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Personal especializado</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Salas de espera</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Sistema de turnos</li></ul></div>
+      <div><h3 class="text-uide-accent text-xl font-semibold mb-2">Objetivos</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Reducir tiempos de espera</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Mejorar utilización</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Identificar cuellos de botella</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Evaluar escenarios</li></ul></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Metodología: Flipped Classroom" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-sync-alt text-uide-accent"></i> Metodología: Flipped Classroom</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto w-full px-2">
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold mb-2"><i class="fas fa-home"></i> Antes de Clase</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Estudiar compendio</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Revisar casos</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Autoevaluaciones</li></ul></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold mb-2"><i class="fas fa-school"></i> En Clase</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>PE</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Análisis de casos</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Resolución de dudas</li></ul></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-uide-accent font-semibold mb-2"><i class="fas fa-tasks"></i> Después de Clase</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>TA</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Profundizar conceptos</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Preparar siguiente semana</li></ul></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Ejemplo: Simulación Simple en Python" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 text-center"><i class="fas fa-code text-uide-accent"></i> Ejemplo: Simulación Simple en Python</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto w-full px-2">
+      <div><h3 class="text-uide-accent text-xl font-semibold mb-2">Conceptos Básicos</h3><ul class="list-none space-y-2"><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Eventos aleatorios</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Seguimiento del tiempo</li><li><i class="fas fa-angle-right text-uide-accent mr-2"></i>Métricas</li></ul></div>
+      <div><pre><code class="language-python">import random
+def simular_llegadas(n_clientes, tiempo_llegada):
+    tiempos = []
+    t = 0
+    for _ in range(n_clientes):
+        t += random.expovariate(1 / tiempo_llegada)
+        tiempos.append(t)
+    return tiempos</code></pre></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Actividades Calificadas - Semana 1" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-center"><i class="fas fa-clipboard-check text-uide-accent"></i> Actividades Calificadas - Semana 1</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto w-full px-2">
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-xl font-semibold mb-2"><i class="fas fa-flask text-uide-accent"></i> Gestión de Práctica</h3><p class="text-uide-accent font-semibold">PE-1.1 (2.25 puntos)</p><p><strong>Taller Clasificación de Sistemas:</strong> 6 casos prácticos.</p></div>
+      <div class="bg-white dark:bg-black/30 border rounded-xl p-4"><h3 class="text-xl font-semibold mb-2"><i class="fas fa-file-alt text-uide-accent"></i> Trabajo Autónomo</h3><p class="text-uide-accent font-semibold">TA-1.1 (2.25 puntos)</p><p><strong>Ficha de Lectura + Mapa de Conceptos:</strong> síntesis del material.</p></div>
+    </div></div>
+<div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500 " data-title="Referencias Bibliográficas" aria-hidden="true"><h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-center"><i class="fas fa-book text-uide-accent"></i> Referencias Bibliográficas</h2>
+    <div class="max-w-5xl mx-auto px-2">
+      <ul class="space-y-4 text-sm sm:text-base leading-relaxed list-none">
+        <li><i class="fas fa-angle-right text-uide-accent mr-2"></i><strong>Main Yaque, P., Navarro Veguillas, H. y Morales Fernández, A. (2019).</strong> <em>Simulación con ejercicios en R</em>. <a href="https://0310s3ikf-y-https-elibro-net.proxy.uide.edu.ec/es/lc/uide/titulos/111720" target="_blank" class="text-uide-accent hover:underline">Enlace</a></li>
+        <li><i class="fas fa-angle-right text-uide-accent mr-2"></i><strong>Fun, W. H., Tan, E. H., Khalid, R. et al. (2022).</strong> Applying Discrete Event Simulation to Reduce Patient Wait Times and Crowding. <a href="https://doi.org/10.3390/healthcare10020189" target="_blank" class="text-uide-accent hover:underline">DOI</a></li>
+      </ul>
+    </div></div></div>
+  <!-- Controles e índice removidos en modo embebido: los maneja PowerPointReader -->
+  <script src="/templates/js/presentacion.js"></script>
+  <script>const themeToggleBtn=document.getElementById('theme-toggle');themeToggleBtn.addEventListener('click',()=>{if(!document.startViewTransition){toggleTheme();return;}document.startViewTransition(()=>{toggleTheme();});});function toggleTheme(){if(document.documentElement.classList.contains('dark')){document.documentElement.classList.remove('dark');localStorage.theme='light';}else{document.documentElement.classList.add('dark');localStorage.theme='dark';}}</script>
+</body>
+</html>

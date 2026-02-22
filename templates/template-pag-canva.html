@@ -1,0 +1,196 @@
+<section class="ruta-semanal">
+
+    <!-- =========================================================
+         TEMPLATE: RUTA DE APRENDIZAJE – SEMANA [N]
+         Sustituir textos entre corchetes según la semana
+         ========================================================= -->
+
+    <!-- ENCABEZADO Y PROPÓSITO -->
+    <h2>Semana 1 — Principios Básicos de Arquitectura de Computadoras</h2>
+
+    <p>
+        Esta semana introducimos los <strong>Principios Básicos de Arquitectura de Computadoras</strong>, base para
+        comprender
+        cómo una computadora procesa información, cómo interactúan sus componentes internos y qué decisiones
+        arquitectónicas
+        influyen en el rendimiento del sistema.
+    </p>
+
+    <p>
+        Estudiaremos el <strong>modelo von Neumann</strong>, compararemos con la arquitectura <strong>Harvard</strong>,
+        exploraremos la <strong>jerarquía de memoria</strong> y finalizaremos con las diferencias esenciales entre
+        <strong>RISC</strong> y <strong>CISC</strong>. Todo esto se integrará en una progresión didáctica que conecta la
+        teoría
+        con actividades de análisis y aplicación.
+    </p>
+
+    <!-- RUTA DE APRENDIZAJE -->
+    <h3>Ruta de Aprendizaje de la Semana</h3>
+
+    <h4>1. Antes de la clase (Activación del conocimiento previo)</h4>
+    <ul>
+        <li>Revisar la <strong>Presentación Semana 1 — Principios Básicos de Arquitectura de Computadoras</strong>.</li>
+        <li>Explorar conceptos básicos: CPU, memoria, almacenamiento y periféricos.</li>
+        <li>Reflexionar:
+            <ul>
+                <li>¿Qué factores pueden hacer que una computadora sea más rápida?</li>
+                <li>¿Qué relación puede existir entre la memoria y el rendimiento?</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>2. Durante la clase (Construcción del conocimiento)</h4>
+    <ul>
+        <li>Explicación del <strong>modelo von Neumann</strong> y sus componentes.</li>
+        <li>Comparación estructurada entre <strong>von Neumann</strong> y <strong>Harvard</strong>.</li>
+        <li>Análisis de la <strong>jerarquía de memoria</strong> y los principios de localidad.</li>
+        <li>Discusión sobre las diferencias entre <strong>arquitecturas RISC y CISC</strong>.</li>
+        <li>Orientación para estructurar el <strong>mapa de arquitectura</strong> requerido en la PE-1.1.</li>
+    </ul>
+
+    <h4>3. Después de la clase (Consolidación y práctica autónoma)</h4>
+    <ul>
+        <li>Completar la <strong>PE-1.1</strong> (Mapa de arquitectura: CPU, memoria, bus, I/O).</li>
+        <li>Desarrollar la <strong>TA-1.1</strong> (Caso real donde la arquitectura afecta rendimiento/consumo).</li>
+        <li>Reforzar la comprensión identificando:
+            <ul>
+                <li>Un sistema que utilice arquitectura <strong>von Neumann</strong>.</li>
+                <li>Un sistema que utilice arquitectura <strong>Harvard</strong>.</li>
+                <li>Una situación donde la <strong>jerarquía de memoria</strong> sea clave.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- MAPA DE CONTENIDOS -->
+    <h3>Mapa de contenidos de la semana</h3>
+
+    <div class="_tableContainer_1rjym_1">
+        <div class="group _tableWrapper_1rjym_13 flex w-fit flex-col-reverse">
+            <table class="w-fit min-w-(--thread-content-width)" style="border-collapse: collapse; width: 100%;"
+                border="1">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">Tema</th>
+                        <th style="width: 50%;">Contenido clave</th>
+                        <th style="width: 28%;">Ejemplos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Componentes Centrales</td>
+                        <td>
+                            Modelo <strong>von Neumann (1949)</strong>:
+                            CPU (ALU, Unidad de Control, Registros), Memoria Principal
+                            y sistema de <strong>Entrada/Salida (I/O)</strong>.
+                            Flujo de datos y control.
+                        </td>
+                        <td>
+                            CPU Intel/AMD; registros PC e IR; buses de datos y control; memoria RAM.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Arquitecturas Fundamentales</td>
+                        <td>
+                            <strong>Von Neumann</strong>: unificación de memoria para datos e instrucciones.<br>
+                            <strong>Harvard</strong>: separación de memoria.<br>
+                            Ventajas y limitaciones de cada enfoque.
+                        </td>
+                        <td>
+                            PCs tradicionales (von Neumann).<br>
+                            Microcontroladores y DSPs (Harvard).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gestión de Memoria</td>
+                        <td>
+                            <strong>Jerarquía de memoria</strong>:
+                            Registros → Caché → RAM → Almacenamiento.<br>
+                            Localidad temporal y espacial. Políticas de reemplazo.
+                        </td>
+                        <td>
+                            Cachés L1-L3; memoria virtual; SSD vs HDD; algoritmos LRU y FIFO.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Arquitecturas RISC vs CISC</td>
+                        <td>
+                            <strong>RISC</strong>: pocas instrucciones simples, pipelines eficientes.<br>
+                            <strong>CISC</strong>: instrucciones complejas, mayor densidad de código.
+                        </td>
+                        <td>
+                            RISC: ARM, MIPS, RISC-V.<br>
+                            CISC: x86 (Intel/AMD).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rendimiento y Optimización</td>
+                        <td>
+                            Factores que influyen en rendimiento:
+                            <strong>frecuencia de reloj</strong>, <strong>pipeline</strong>,
+                            <strong>eficiencia de caché</strong>,
+                            paralelismo a nivel de instrucción.
+                        </td>
+                        <td>
+                            Predicción de saltos; superescalar vs escalar; penalización de cache miss.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- RESULTADOS DE APRENDIZAJE -->
+    <h3>Resultados de Aprendizaje</h3>
+
+    <p>Al finalizar esta semana, el estudiante será capaz de:</p>
+    <ul>
+        <li>Reconocer y explicar los <strong>componentes del modelo von Neumann</strong> y su interacción funcional.
+        </li>
+        <li>Diferenciar las <strong>arquitecturas von Neumann y Harvard</strong> y justificar su aplicación en distintos
+            tipos de sistemas.</li>
+        <li>Describir la <strong>jerarquía de memoria</strong> y los principios de localidad que optimizan el
+            rendimiento.</li>
+        <li>Analizar las diferencias entre <strong>RISC y CISC</strong> en términos de diseño, rendimiento y consumo
+            energético.</li>
+    </ul>
+
+    <!-- MATERIALES -->
+    <h3>Materiales</h3>
+
+    <ul>
+        <li><strong>Presentación:</strong> Semana 1 — Principios Básicos de Arquitectura de Computadoras.</li>
+        <li><strong>Bibliografía:</strong>
+            <ul>
+                <li>Elahi, A. (2022). <em>Computer Systems: Digital Design, Fundamentals of Computer Architecture and
+                        Assembly Language</em>. Springer.</li>
+                <li>Patterson, D. &amp; Hennessy, J. (2020). <em>Computer Organization and Design – RISC-V Edition</em>.
+                </li>
+                <li>Stallings, W. (2018). <em>Computer Organization and Architecture</em>.</li>
+                <li>Tanenbaum, A. &amp; Austin, T. (2012). <em>Structured Computer Organization</em>.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- ACTIVIDADES -->
+    <h3>Actividades y evaluación</h3>
+
+    <ul>
+        <li>
+            <strong>PE-1.1:</strong> Mapa de arquitectura (CPU, memoria, bus, I/O) —
+            <strong>2.25 pts</strong>.
+        </li>
+        <li>
+            <strong>TA-1.1:</strong> Ficha de análisis (1 página) sobre caso real donde la arquitectura afecta
+            rendimiento/consumo —
+            <strong>2.25 pts</strong>.
+        </li>
+        <li><strong>Total semana:</strong> 4.5 / 30 (evaluación diagnóstica).</li>
+    </ul>
+
+    <!-- CIERRE -->
+    <p>
+        Si tienes dudas, puedes escribir en el canal de <strong>DISCORD</strong> o enviarme un mensaje por
+        <strong>Canvas</strong>.
+    </p>
+
+</section>

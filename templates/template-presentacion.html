@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Presentación académica UIDE - [TÍTULO DE LA PRESENTACIÓN]">
+    <title>[TÍTULO DE LA PRESENTACIÓN] - Semana [X]</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%23910048' d='M10 10h80v80H10z'/><text x='50' y='50' font-family='Arial' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>UIDE</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Prism.js para syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <!-- Mermaid.js ELIMINADO por solicitud - Usar Excalidraw JSON -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script> -->
+    <!-- Estilos personalizados -->
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/presentacion.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'uide-primary': '#910048',
+                        'uide-secondary': '#23356E',
+                        'uide-accent': '#E9AB21',
+                        'uide-dark': '#0f1419',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        // Default to LIGHT mode, only use dark if explicitly set or system prefers dark
+        if (localStorage.theme === 'dark' || (localStorage.theme !== 'light' && !('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+            // Explicitly set light theme in localStorage if not set
+            if (!('theme' in localStorage)) {
+                localStorage.theme = 'light';
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="min-h-screen text-slate-900 dark:text-white bg-slate-50 dark:bg-uide-dark overflow-hidden select-text transition-colors duration-500">
+    <!-- Logo UIDE (Fijo en todas las slides) - Responsivo -->
+    <div
+        class="fixed top-2 left-2 sm:top-4 sm:left-4 md:top-6 md:left-6 lg:top-8 lg:left-8 z-50 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center">
+        <img src="images/Logo%20UIDE.png" alt="UIDE Logo" class="w-full h-full object-contain">
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Cambiar Tema">
+        <i class="fas fa-sun block dark:hidden"></i>
+        <i class="fas fa-moon hidden dark:block"></i>
+    </button>
+
+    <div class="presentation-container relative w-full h-screen">
+
+        <!-- ============================================ -->
+        <!-- SLIDE 1: CARÁTULA (OBLIGATORIA) -->
+        <!-- ============================================ -->
+        <div class="slide active absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(145,0,72,0.05)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500"
+            data-title="Carátula - [TÍTULO DE LA PRESENTACIÓN]" aria-hidden="false">
+            <div class="max-w-5xl w-full px-2 sm:px-4">
+                <div class="text-center mb-6 sm:mb-8">
+                    <h3 class="text-slate-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">
+                        Presentación Semana [X]
+                    </h3>
+                    <h2
+                        class="text-uide-primary dark:text-uide-accent text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-2 leading-tight">
+                        [TÍTULO PRINCIPAL DE LA PRESENTACIÓN]
+                    </h2>
+                    <p class="text-slate-800 dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-medium mt-2"
+                        style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);">
+                        [CÓDIGO-MATERIA] • [Nivel]
+                    </p>
+                    <p class="text-slate-600 dark:text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl mt-2">
+                        [Nombre de la Materia]
+                    </p>
+                </div>
+
+                <div class="text-center my-6 sm:my-8">
+                    <p class="text-slate-800 dark:text-white text-lg sm:text-xl md:text-2xl font-semibold">
+                        Prof. Charlie Cárdenas Toledo, M.Sc.
+                    </p>
+                    <p class="text-uide-accent text-base sm:text-lg md:text-xl font-medium mt-2">
+                        Octubre 2025 – Febrero 2026
+                    </p>
+                </div>
+
+                <div
+                    class="text-center mt-6 sm:mt-8 md:mt-10 p-4 sm:p-6 md:p-8 bg-slate-100 dark:bg-black/40 rounded-xl sm:rounded-2xl border border-slate-300 dark:border-white/10">
+                    <h3 class="text-uide-accent text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4">
+                        <i class="fas fa-[ICONO]"></i> [Subtítulo o Tema Principal]
+                    </h3>
+                    <p
+                        class="text-slate-700 dark:text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4">
+                        <strong>Semana [X]</strong> • [Tema 1] • [Tema 2] • [Tema 3]
+                    </p>
+                    <p class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm md:text-base italic">
+                        [Descripción breve o caso de uso]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 2: ACTIVIDADES Y HERRAMIENTAS (OBLIGATORIA) -->
+        <!-- ============================================ -->
+        <div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500"
+            data-title="Actividades y Herramientas - Semana [X]" aria-hidden="true">
+            <!-- PEDAGOGY NOTE: REGLA 3x3 - MÁXIMO 1 IDEA POR SLIDE, MÁXIMO 3 BULLETS -->
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-clipboard-list text-uide-accent"></i> Actividades Calificadas y Herramientas
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto w-full px-2">
+                <!-- Columna Izquierda: Actividades Calificadas -->
+                <div class="space-y-3 sm:space-y-4">
+                    <div
+                        class="p-4 sm:p-5 md:p-6 bg-white dark:bg-black/40 rounded-lg sm:rounded-xl border-2 border-uide-primary">
+                        <div class="flex justify-between items-center mb-4 sm:mb-6">
+                            <h3 class="text-uide-accent text-lg sm:text-xl md:text-2xl font-semibold">
+                                <i class="fas fa-clipboard-check"></i> Actividades Calificadas
+                            </h3>
+                        </div>
+
+                        <div class="space-y-3 sm:space-y-4">
+                            <!-- PE-1.X -->
+                            <div class="bg-green-500/15 p-3 sm:p-4 rounded-lg border-l-4 border-green-400">
+                                <div
+                                    class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1 sm:gap-2">
+                                    <span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-semibold">
+                                        <i class="fas fa-flask"></i> PE-1.[X]: [Nombre de la Práctica]
+                                    </span>
+                                    <span class="text-uide-accent text-sm sm:text-base font-bold">2.25 pts</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                    [Descripción breve de la práctica]
+                                </p>
+                            </div>
+
+                            <!-- TA-1.X -->
+                            <div class="bg-yellow-600/15 p-3 sm:p-4 rounded-lg border-l-4 border-uide-accent">
+                                <div
+                                    class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1 sm:gap-2">
+                                    <span class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-semibold">
+                                        <i class="fas fa-file-alt"></i> TA-1.[X]: [Nombre del Trabajo]
+                                    </span>
+                                    <span class="text-uide-accent text-sm sm:text-base font-bold">2.25 pts</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed">
+                                    [Descripción breve del trabajo autónomo]
+                                </p>
+                            </div>
+
+                            <!-- Total -->
+                            <div class="bg-yellow-600/20 p-3 sm:p-4 rounded-lg border-2 border-uide-accent mt-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-uide-accent text-base sm:text-lg font-bold">
+                                        <i class="fas fa-star"></i> Total Semana [X]
+                                    </span>
+                                    <span class="text-uide-accent text-xl sm:text-2xl font-bold">4.5 pts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Herramientas y Recursos -->
+                <div class="space-y-3 sm:space-y-4">
+                    <div
+                        class="p-4 sm:p-5 md:p-6 bg-blue-50 dark:bg-[rgba(35,53,110,0.3)] rounded-lg sm:rounded-xl border-2 border-blue-400">
+                        <div class="flex justify-between items-center mb-4 sm:mb-6">
+                            <h3 class="text-blue-400 text-lg sm:text-xl md:text-2xl font-semibold">
+                                <i class="fas fa-tools"></i> Recursos de Aprendizaje
+                            </h3>
+                        </div>
+                        <div class="space-y-2 sm:space-y-3">
+                            <div class="bg-green-500/10 p-2 sm:p-3 rounded-lg border-l-3 border-green-400">
+                                <i class="fas fa-[ICONO] text-green-400 mr-2"></i>
+                                <span
+                                    class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-medium">[Recurso
+                                    1]</span>
+                            </div>
+                            <div class="bg-green-500/10 p-2 sm:p-3 rounded-lg border-l-3 border-green-400">
+                                <i class="fas fa-[ICONO] text-green-400 mr-2"></i>
+                                <span
+                                    class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-medium">[Recurso
+                                    2]</span>
+                            </div>
+                            <div class="bg-green-500/10 p-2 sm:p-3 rounded-lg border-l-3 border-green-400">
+                                <span
+                                    class="text-slate-800 dark:text-gray-200 text-sm sm:text-base font-medium">[Recurso
+                                    3]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 3: OBJETIVOS (OBLIGATORIA) -->
+        <!-- ============================================ -->
+        <div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500"
+            data-title="Objetivos - Semana [X]" aria-hidden="true">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-bullseye text-uide-accent"></i> Resultados de Aprendizaje
+            </h2>
+            <ul
+                class="max-w-5xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed list-none px-4 sm:px-6">
+                <li class="relative pl-0 mb-3 text-slate-700 dark:text-gray-300">
+                    <i class="fas fa-angle-right text-uide-accent absolute left-0 top-0"></i>
+                    <span class="pl-7">[Objetivo 1 con <span class="text-uide-accent font-semibold">palabras clave
+                            resaltadas</span>]</span>
+                </li>
+                <li class="relative pl-0 mb-3 text-slate-700 dark:text-gray-300">
+                    <i class="fas fa-angle-right text-uide-accent absolute left-0 top-0"></i>
+                    <span class="pl-7">[Objetivo 2 con <span class="text-uide-accent font-semibold">conceptos
+                            importantes</span>]</span>
+                </li>
+                <li class="relative pl-0 mb-3 text-slate-700 dark:text-gray-300">
+                    <i class="fas fa-angle-right text-uide-accent absolute left-0 top-0"></i>
+                    <span class="pl-7">[Objetivo 3 con <span class="text-uide-accent font-semibold">habilidades a
+                            desarrollar</span>]</span>
+                </li>
+                <li class="relative pl-0 mb-3 text-slate-700 dark:text-gray-300">
+                    <i class="fas fa-angle-right text-uide-accent absolute left-0 top-0"></i>
+                    <span class="pl-7">[Objetivo 4 con <span class="text-uide-accent font-semibold">competencias
+                            específicas</span>]</span>
+                </li>
+                <li class="relative pl-0 mb-3 text-slate-700 dark:text-gray-300">
+                    <i class="fas fa-angle-right text-uide-accent absolute left-0 top-0"></i>
+                    <span class="pl-7">[Objetivo 5 con <span class="text-uide-accent font-semibold">resultados
+                            esperados</span>]</span>
+                </li>
+            </ul>
+            <!-- PEDAGOGY NOTE: EJEMPLO REDUCIDO A 3 PARA CUMPLIR REGLA 3x3 -->
+            </ul>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 4: AGENDA (OBLIGATORIA) -->
+        <!-- ============================================ -->
+        <div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500"
+            data-title="Agenda - Semana [X]" aria-hidden="true">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-chart-line text-uide-accent"></i> Agenda
+            </h2>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto w-full px-2">
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">1. [Tema 1]</h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base">[Descripción breve]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">2. [Tema 2]</h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base">[Descripción breve]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">3. [Tema 3]</h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base">[Descripción breve]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">4. [Tema 4]</h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base">[Descripción breve]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">5. [Tema 5]</h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base">[Descripción breve]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDES DE CONTENIDO (PERSONALIZABLES) -->
+        <!-- ============================================ -->
+
+        <!-- Slide de Contenido: Ejemplo con Quote -->
+        <div class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500"
+            data-title="[Título del Slide]" aria-hidden="true">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-[ICONO] text-uide-accent"></i> [Título del Slide]
+            </h2>
+            <div
+                class="bg-[rgba(233,171,33,0.1)] border-l-4 border-uide-accent p-4 sm:p-5 rounded-r-lg mb-6 sm:mb-8 max-w-4xl mx-auto w-full">
+                <p class="text-lg sm:text-xl md:text-2xl italic text-slate-700 dark:text-gray-200">
+                    "[Cita o frase destacada que introduce el tema]"
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto w-full px-2">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">[Subtítulo
+                        Izquierda]</h3>
+                    <ul class="space-y-2 sm:space-y-3 text-base sm:text-lg list-none">
+                        <li class="text-slate-700 dark:text-gray-300"><span class="text-uide-accent font-semibold">Punto
+                                1</span>:
+                            Descripción</li>
+                        <li class="text-slate-700 dark:text-gray-300"><span class="text-uide-accent font-semibold">Punto
+                                2</span>:
+                            Descripción</li>
+                        <li class="text-slate-700 dark:text-gray-300"><span class="text-uide-accent font-semibold">Punto
+                                3</span>:
+                            Descripción</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">[Subtítulo
+                        Derecha]</h3>
+                    <p class="text-base sm:text-lg leading-relaxed text-slate-700 dark:text-gray-300">
+                        [Texto explicativo o descripción detallada del concepto]
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Contenido: Ejemplo con Código -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-code text-uide-accent"></i> [Título con Código]
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto w-full px-2">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">
+                        [Explicación]</h3>
+                    <ul class="space-y-2 sm:space-y-3 text-base sm:text-lg list-none">
+                        <li class="text-slate-700 dark:text-gray-300">
+                            <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                            <span>Punto explicativo 1</span>
+                        </li>
+                        <li class="text-slate-700 dark:text-gray-300">
+                            <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                            <span>Punto explicativo 2</span>
+                        </li>
+                        <li class="text-slate-700 dark:text-gray-300">
+                            <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                            <span>Punto explicativo 3</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">[Ejemplo
+                        de Código SQL]</h3>
+                    <pre><code class="language-sql">-- Comentario explicativo
+SELECT columna1, columna2, columna3
+FROM tabla_ejemplo
+WHERE condicion = 'valor'
+  AND fecha > '2025-01-01'
+ORDER BY columna1 DESC;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Contenido: Ejemplo con Código Python -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-code text-uide-accent"></i> [Ejemplo con Python]
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto w-full px-2">
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-800 dark:text-white mb-4">Explicación</h3>
+                    <ul class="space-y-3 text-lg list-none">
+                        <li class="text-slate-700 dark:text-gray-300">
+                            <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                            <span>Función para procesar datos</span>
+                        </li>
+                        <li class="text-slate-700 dark:text-gray-300">
+                            <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                            <span>Uso de list comprehension</span>
+                        </li>
+                        <li class="text-slate-700 dark:text-gray-300">
+                            <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                            <span>Manejo de excepciones</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-800 dark:text-white mb-4">Código Python</h3>
+                    <pre><code class="language-python">def procesar_datos(lista):
+    """Procesa una lista de números"""
+    try:
+        resultado = [x * 2 for x in lista if x > 0]
+        return sum(resultado)
+    except TypeError:
+        return None</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Contenido: Ejemplo con Código JavaScript -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-code text-uide-accent"></i> [Ejemplo con JavaScript]
+            </h2>
+            <div class="max-w-5xl mx-auto w-full px-2">
+                <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">
+                    Función Asíncrona</h3>
+                <pre><code class="language-javascript">// Función para obtener datos de una API
+async function obtenerDatos(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.filter(item => item.activo);
+    } catch (error) {
+        console.error('Error:', error);
+        return [];
+    }
+}
+
+// Uso de la función
+obtenerDatos('https://api.ejemplo.com/datos')
+    .then(datos => console.log(datos));</code></pre>
+            </div>
+        </div>
+
+        <!-- Slide de Contenido: Ejemplo con Tabla -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-table text-uide-accent"></i> [Título con Tabla Comparativa]
+            </h2>
+            <div
+                class="max-w-5xl mx-auto overflow-x-auto rounded-lg sm:rounded-xl border border-slate-300 dark:border-gray-600 w-full">
+                <table class="w-full border-collapse min-w-full">
+                    <thead class="bg-uide-primary">
+                        <tr>
+                            <th
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-left text-sm sm:text-base md:text-lg font-semibold text-white border-b border-gray-600">
+                                Aspecto</th>
+                            <th
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-left text-sm sm:text-base md:text-lg font-semibold text-white border-b border-gray-600">
+                                Opción A</th>
+                            <th
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-left text-sm sm:text-base md:text-lg font-semibold text-white border-b border-gray-600">
+                                Opción B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 font-bold text-uide-accent border-b border-gray-600 text-sm sm:text-base">
+                                <strong>Característica 1</strong>
+                            </td>
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-slate-700 dark:text-gray-300 border-b border-slate-300 dark:border-gray-600 text-sm sm:text-base">
+                                Valor A1</td>
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-slate-700 dark:text-gray-300 border-b border-slate-300 dark:border-gray-600 text-sm sm:text-base">
+                                Valor B1</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 font-bold text-uide-accent border-b border-gray-600 text-sm sm:text-base">
+                                <strong>Característica 2</strong>
+                            </td>
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-slate-700 dark:text-gray-300 border-b border-slate-300 dark:border-gray-600 text-sm sm:text-base">
+                                Valor A2</td>
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-slate-700 dark:text-gray-300 border-b border-slate-300 dark:border-gray-600 text-sm sm:text-base">
+                                Valor B2</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 font-bold text-uide-accent border-b border-gray-600 text-sm sm:text-base">
+                                <strong>Característica 3</strong>
+                            </td>
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-slate-700 dark:text-gray-300 border-b border-slate-300 dark:border-gray-600 text-sm sm:text-base">
+                                Valor A3</td>
+                            <td
+                                class="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 text-slate-700 dark:text-gray-300 border-b border-slate-300 dark:border-gray-600 text-sm sm:text-base">
+                                Valor B3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide de Contenido: Ejemplo con Feature Cards -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-th text-uide-accent"></i> [Título con Cards]
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto w-full px-2">
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4">
+                        <i class="fas fa-[ICONO]"></i> [Card 1]
+                    </h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">[Descripción del
+                        concepto 1]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4">
+                        <i class="fas fa-[ICONO]"></i> [Card 2]
+                    </h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">[Descripción del
+                        concepto 2]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4">
+                        <i class="fas fa-[ICONO]"></i> [Card 3]
+                    </h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">[Descripción del
+                        concepto 3]</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:border-uide-accent">
+                    <h3 class="text-uide-accent text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4">
+                        <i class="fas fa-[ICONO]"></i> [Card 4]
+                    </h3>
+                    <p class="text-slate-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed">[Descripción del
+                        concepto 4]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDES ADICIONALES ENRIQUECIDOS -->
+        <!-- ============================================ -->
+
+        <!-- Slide: Timeline / Línea de Tiempo -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-timeline text-uide-accent"></i> [Línea de Tiempo / Proceso]
+            </h2>
+            <div class="max-w-5xl mx-auto w-full px-2">
+                <!-- Timeline Item 1 -->
+                <div class="flex gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-7 md:mb-8">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-uide-accent flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                            1</div>
+                        <div class="w-1 h-full bg-uide-accent/30 mt-2"></div>
+                    </div>
+                    <div class="flex-1 pb-6 sm:pb-7 md:pb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-1 sm:mb-2">[Fase 1: Título]</h3>
+                        <p class="text-slate-700 dark:text-gray-300 mb-1 sm:mb-2 text-sm sm:text-base">[Descripción de
+                            la primera fase del
+                            proceso]</p>
+                        <span class="text-xs sm:text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>[Duración: 2
+                            semanas]</span>
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="flex gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-7 md:mb-8">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-uide-accent flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                            2</div>
+                        <div class="w-1 h-full bg-uide-accent/30 mt-2"></div>
+                    </div>
+                    <div class="flex-1 pb-6 sm:pb-7 md:pb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-1 sm:mb-2">[Fase 2: Título]</h3>
+                        <p class="text-slate-700 dark:text-gray-300 mb-1 sm:mb-2 text-sm sm:text-base">[Descripción de
+                            la segunda fase del
+                            proceso]</p>
+                        <span class="text-xs sm:text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>[Duración: 3
+                            semanas]</span>
+                    </div>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="flex gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-7 md:mb-8">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-uide-accent flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                            3</div>
+                        <div class="w-1 h-full bg-uide-accent/30 mt-2"></div>
+                    </div>
+                    <div class="flex-1 pb-6 sm:pb-7 md:pb-8">
+                        <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-1 sm:mb-2">[Fase 3: Título]</h3>
+                        <p class="text-slate-700 dark:text-gray-300 mb-1 sm:mb-2 text-sm sm:text-base">[Descripción de
+                            la tercera fase del
+                            proceso]</p>
+                        <span class="text-xs sm:text-sm text-gray-500"><i class="fas fa-clock mr-1"></i>[Duración: 1
+                            semana]</span>
+                    </div>
+                </div>
+                <!-- Timeline Item 4 -->
+                <div class="flex gap-3 sm:gap-4 md:gap-6">
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-base sm:text-lg">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg sm:text-xl font-bold text-green-400 mb-1 sm:mb-2">[Fase Final: Entrega]</h3>
+                        <p class="text-gray-300 text-sm sm:text-base">[Descripción de la fase final y entregables]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Alertas y Callouts -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-exclamation-triangle text-uide-accent"></i> [Puntos Importantes]
+            </h2>
+            <div class="max-w-5xl mx-auto w-full space-y-4 sm:space-y-5 md:space-y-6 px-2">
+                <!-- Alerta de Éxito -->
+                <div class="bg-green-900/30 border-l-4 border-green-400 p-4 sm:p-5 md:p-6 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-400 text-xl sm:text-2xl mr-3 sm:mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-green-400 mb-1 sm:mb-2">
+                                <i class="fas fa-thumbs-up mr-2"></i>Buena Práctica
+                            </h3>
+                            <p class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Descripción de una buena
+                                práctica o
+                                recomendación importante]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerta de Advertencia -->
+                <div class="bg-yellow-900/30 border-l-4 border-yellow-400 p-4 sm:p-5 md:p-6 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i
+                            class="fas fa-exclamation-triangle text-yellow-400 text-xl sm:text-2xl mr-3 sm:mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-yellow-400 mb-1 sm:mb-2">
+                                <i class="fas fa-exclamation-circle mr-2"></i>Advertencia
+                            </h3>
+                            <p class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Descripción de algo que
+                                requiere atención
+                                especial o precaución]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerta de Error/Peligro -->
+                <div class="bg-red-900/30 border-l-4 border-red-400 p-4 sm:p-5 md:p-6 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-times-circle text-red-400 text-xl sm:text-2xl mr-3 sm:mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-red-400 mb-1 sm:mb-2">
+                                <i class="fas fa-ban mr-2"></i>Error Común
+                            </h3>
+                            <p class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Descripción de un error
+                                común que se debe
+                                evitar]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerta de Información -->
+                <div class="bg-blue-900/30 border-l-4 border-blue-400 p-4 sm:p-5 md:p-6 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-blue-400 text-xl sm:text-2xl mr-3 sm:mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-blue-400 mb-1 sm:mb-2">
+                                <i class="fas fa-info mr-2"></i>Información Adicional
+                            </h3>
+                            <p class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Información
+                                complementaria o dato interesante
+                                relacionado al tema]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerta de Tip -->
+                <div class="bg-purple-900/30 border-l-4 border-purple-400 p-4 sm:p-5 md:p-6 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-lightbulb text-purple-400 text-xl sm:text-2xl mr-3 sm:mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-purple-400 mb-1 sm:mb-2">
+                                <i class="fas fa-star mr-2"></i>Tip Profesional
+                            </h3>
+                            <p class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Consejo práctico o truco
+                                útil para aplicar en
+                                el trabajo]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Estadísticas y Métricas -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-chart-bar text-uide-accent"></i> [Estadísticas Clave]
+            </h2>
+            <div
+                class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto w-full mb-6 sm:mb-8 px-2">
+                <!-- Métrica 1 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border-2 border-blue-500 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 text-center hover:scale-105 transition-transform">
+                    <i class="fas fa-users text-blue-400 text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 md:mb-4"></i>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-400 mb-1 sm:mb-2">85%</div>
+                    <div class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm">[Métrica 1]</div>
+                </div>
+                <!-- Métrica 2 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border-2 border-green-500 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 text-center hover:scale-105 transition-transform">
+                    <i
+                        class="fas fa-chart-line text-green-400 text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 md:mb-4"></i>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-green-400 mb-1 sm:mb-2">+42%</div>
+                    <div class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm">[Métrica 2]</div>
+                </div>
+                <!-- Métrica 3 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border-2 border-uide-accent rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 text-center hover:scale-105 transition-transform">
+                    <i class="fas fa-clock text-uide-accent text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 md:mb-4"></i>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-uide-accent mb-1 sm:mb-2">2.5h</div>
+                    <div class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm">[Métrica 3]</div>
+                </div>
+                <!-- Métrica 4 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border-2 border-purple-500 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 text-center hover:scale-105 transition-transform">
+                    <i class="fas fa-star text-purple-400 text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 md:mb-4"></i>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-400 mb-1 sm:mb-2">4.8/5</div>
+                    <div class="text-slate-600 dark:text-gray-400 text-xs sm:text-sm">[Métrica 4]</div>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto px-4">
+                <p class="text-slate-700 dark:text-gray-300 text-center text-sm sm:text-base md:text-lg">[Descripción o
+                    contexto de las
+                    estadísticas presentadas]
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide: Comparación Lado a Lado (Pros y Contras) -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-balance-scale text-uide-accent"></i> [Ventajas vs Desventajas]
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 max-w-6xl mx-auto w-full px-2">
+                <!-- Ventajas -->
+                <div class="bg-green-900/20 border-2 border-green-400 rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8">
+                    <h3 class="text-xl sm:text-2xl font-bold text-green-400 mb-4 sm:mb-5 md:mb-6 text-center">
+                        <i class="fas fa-thumbs-up mr-2"></i>Ventajas
+                    </h3>
+                    <ul class="space-y-3 sm:space-y-4">
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-check-circle text-green-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Ventaja 1: Descripción
+                                detallada]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-check-circle text-green-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Ventaja 2: Descripción
+                                detallada]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-check-circle text-green-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Ventaja 3: Descripción
+                                detallada]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-check-circle text-green-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Ventaja 4: Descripción
+                                detallada]</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Desventajas -->
+                <div class="bg-red-900/20 border-2 border-red-400 rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8">
+                    <h3 class="text-xl sm:text-2xl font-bold text-red-400 mb-4 sm:mb-5 md:mb-6 text-center">
+                        <i class="fas fa-thumbs-down mr-2"></i>Desventajas
+                    </h3>
+                    <ul class="space-y-3 sm:space-y-4">
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-times-circle text-red-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Desventaja 1:
+                                Descripción
+                                detallada]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-times-circle text-red-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Desventaja 2:
+                                Descripción
+                                detallada]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-times-circle text-red-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Desventaja 3:
+                                Descripción
+                                detallada]</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i
+                                class="fas fa-times-circle text-red-400 mr-2 sm:mr-3 mt-1 flex-shrink-0 text-sm sm:text-base"></i>
+                            <span class="text-slate-700 dark:text-gray-300 text-sm sm:text-base">[Desventaja 4:
+                                Descripción
+                                detallada]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Preguntas Frecuentes (FAQ) -->
+        <div
+            class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+                <i class="fas fa-question-circle text-uide-accent"></i> Preguntas Frecuentes
+            </h2>
+            <div class="max-w-5xl mx-auto w-full space-y-4 sm:space-y-5 md:space-y-6 px-2">
+                <!-- FAQ 1 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 hover:border-uide-accent transition-colors">
+                    <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-2 sm:mb-3">
+                        <i class="fas fa-question mr-2"></i>[Pregunta 1]
+                    </h3>
+                    <p class="text-slate-700 dark:text-gray-300 pl-6 sm:pl-7 md:pl-8 text-sm sm:text-base">[Respuesta
+                        detallada a la
+                        pregunta 1]</p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 hover:border-uide-accent transition-colors">
+                    <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-2 sm:mb-3">
+                        <i class="fas fa-question mr-2"></i>[Pregunta 2]
+                    </h3>
+                    <p class="text-slate-700 dark:text-gray-300 pl-6 sm:pl-7 md:pl-8 text-sm sm:text-base">[Respuesta
+                        detallada a la
+                        pregunta 2]</p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 hover:border-uide-accent transition-colors">
+                    <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-2 sm:mb-3">
+                        <i class="fas fa-question mr-2"></i>[Pregunta 3]
+                    </h3>
+                    <p class="text-slate-700 dark:text-gray-300 pl-6 sm:pl-7 md:pl-8 text-sm sm:text-base">[Respuesta
+                        detallada a la
+                        pregunta 3]</p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div
+                    class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 hover:border-uide-accent transition-colors">
+                    <h3 class="text-lg sm:text-xl font-bold text-uide-accent mb-2 sm:mb-3">
+                        <i class="fas fa-question mr-2"></i>[Pregunta 4]
+                    </h3>
+                    <p class="text-slate-700 dark:text-gray-300 pl-6 sm:pl-7 md:pl-8 text-sm sm:text-base">[Respuesta
+                        detallada a la
+                        pregunta 4]</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ============================================ -->
+    <!-- SLIDE PENÚLTIMA: ACTIVIDADES CALIFICADAS DETALLADAS (OBLIGATORIA) -->
+    <!-- ============================================ -->
+    <div
+        class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+        <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+            <i class="fas fa-clipboard-check text-uide-accent"></i> Actividades Calificadas - Semana [X]
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 max-w-6xl mx-auto w-full px-2">
+            <div
+                class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl">
+                <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">
+                    <i class="fas fa-flask text-uide-accent"></i> Gestión de Práctica
+                </h3>
+                <p class="text-uide-accent font-semibold text-base sm:text-lg mb-3 sm:mb-4">PE-1.[X] (2.25 puntos)</p>
+                <p class="text-slate-700 dark:text-gray-200 mb-3 sm:mb-4 text-sm sm:text-base"><strong>[Nombre de la
+                        Práctica]:</strong>
+                    [Descripción detallada]</p>
+                <ul class="space-y-1 sm:space-y-2 text-sm sm:text-base text-slate-700 dark:text-gray-300 list-none">
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Actividad específica 1]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Actividad específica 2]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Actividad específica 3]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Actividad específica 4]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Actividad específica 5]</span>
+                    </li>
+                </ul>
+            </div>
+            <div
+                class="bg-white dark:bg-[rgba(15,20,25,0.8)] border border-slate-300 dark:border-white/20 rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 shadow-xl">
+                <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-3 sm:mb-4">
+                    <i class="fas fa-file-alt text-uide-accent"></i> Trabajo Autónomo
+                </h3>
+                <p class="text-uide-accent font-semibold text-base sm:text-lg mb-3 sm:mb-4">TA-1.[X] (2.25 puntos)</p>
+                <p class="text-slate-700 dark:text-gray-200 mb-3 sm:mb-4 text-sm sm:text-base"><strong>[Nombre del
+                        Trabajo]:</strong>
+                    [Descripción detallada]</p>
+                <ul class="space-y-1 sm:space-y-2 text-sm sm:text-base text-slate-700 dark:text-gray-300 list-none">
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Componente 1 del trabajo]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Componente 2 del trabajo]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Componente 3 del trabajo]</span>
+                    </li>
+                    <li class="relative pl-0 mb-1 sm:mb-2">
+                        <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                        <span>[Componente 4 del trabajo]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SLIDE FINAL: BIBLIOGRAFÍA (OBLIGATORIA) -->
+    <!-- ============================================ -->
+    <div
+        class="slide absolute top-0 left-0 w-full h-screen p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex-col justify-center items-center bg-white/95 dark:bg-[rgba(15,20,25,0.95)] border border-slate-200 dark:border-white/15 rounded-xl sm:rounded-2xl md:rounded-3xl m-2 sm:m-3 md:m-4 lg:m-5 shadow-2xl overflow-y-auto select-text transition-all duration-500">
+        <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6 sm:mb-8 md:mb-12 text-center text-slate-900 dark:text-white px-2">
+            <i class="fas fa-book text-uide-accent"></i> Referencias Bibliográficas
+        </h2>
+        <div class="max-w-5xl mx-auto px-2">
+            <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-4 sm:mb-5 md:mb-6">
+                Bibliografía Básica</h3>
+            <ul class="space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed mb-8 sm:mb-9 md:mb-10 list-none">
+                <li class="text-slate-700 dark:text-gray-300 mb-3 sm:mb-4">
+                    <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                    <strong>[Autor 1].</strong> <em>[Título del libro 1]</em>. [Editorial].
+                    <a href="[URL]" class="text-uide-accent hover:underline" target="_blank">Enlace</a>
+                </li>
+                <li class="text-slate-700 dark:text-gray-300 mb-3 sm:mb-4">
+                    <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                    <strong>[Autor 2].</strong> <em>[Título del libro 2]</em>. [Editorial].
+                    <a href="[URL]" class="text-uide-accent hover:underline" target="_blank">Enlace</a>
+                </li>
+                <li class="text-slate-700 dark:text-gray-300 mb-3 sm:mb-4">
+                    <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                    <strong>[Autor 3].</strong> <em>[Título del libro 3]</em>. [Editorial].
+                    <a href="[URL]" class="text-uide-accent hover:underline" target="_blank">Enlace</a>
+                </li>
+            </ul>
+
+            <h3 class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white mb-4 sm:mb-5 md:mb-6">
+                Bibliografía Complementaria</h3>
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm leading-relaxed list-none">
+                <li class="text-gray-300 mb-2 sm:mb-3">
+                    <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                    <strong>[Autor 4].</strong> <em>[Título del libro 4]</em>. [Editorial].
+                </li>
+                <li class="text-slate-700 dark:text-gray-300 mb-2 sm:mb-3">
+                    <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                    <strong>[Autor 5].</strong> <em>[Título del libro 5]</em>. [Editorial].
+                </li>
+                <li class="text-slate-700 dark:text-gray-300 mb-2 sm:mb-3">
+                    <i class="fas fa-angle-right text-uide-accent mr-2"></i>
+                    <strong>[Autor 6].</strong> <em>[Título del libro 6]</em>. [Editorial].
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Navigation Controls (Fijos - Responsivos) -->
+    <div
+        class="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 flex items-center gap-2 sm:gap-3 md:gap-4 z-50">
+        <button id="indexBtn"
+            class="px-2 py-2 sm:px-3 sm:py-3 md:px-4 md:py-4 bg-uide-accent/20 border border-uide-accent/40 rounded-lg text-uide-accent font-semibold cursor-pointer text-lg sm:text-xl md:text-2xl w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex items-center justify-center transition-all duration-300 hover:bg-uide-accent/30 hover:border-uide-accent/60"
+            title="Ver índice de slides">
+            <i class="fas fa-list"></i>
+        </button>
+        <button id="prevBtn"
+            class="px-2 py-2 sm:px-3 sm:py-3 md:px-4 md:py-4 bg-slate-200 dark:bg-white/10 border border-slate-400 dark:border-white/20 rounded-lg text-slategray-700 dark:text-white/80 font-semibold cursor-pointer text-lg sm:text-xl md:text-2xl w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex items-center justify-center transition-all duration-300 hover:bg-slate-300 dark:hover:bg-white/15 hover:text-slate-900 dark:hover:text-white/90 hover:border-slate-500 dark:hover:border-white/25 disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <span
+            class="bg-white dark:bg-[rgba(26,31,58,0.9)] px-3 py-1 sm:px-4 sm:py-2 md:px-5 md:py-2 rounded-2xl sm:rounded-3xl border border-slate-300 dark:border-gray-600 font-semibold text-xs sm:text-sm md:text-base text-slate-900 dark:text-white">
+            <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+        </span>
+        <button id="nextBtn"
+            class="px-4 py-4 bg-slate-200 dark:bg-white/10 border border-slate-400 dark:border-white/20 rounded-lg text-slate-700 dark:text-white/80 font-semibold cursor-pointer text-2xl w-11 h-11 flex items-center justify-center transition-all duration-300 hover:bg-slate-300 dark:hover:bg-white/15 hover:text-slate-900 dark:hover:text-white/90 hover:border-slate-500 dark:hover:border-white/25 disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Modal de Índice -->
+    <div id="indexModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-[rgba(15,20,25,0.98)] border-2 border-uide-accent rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden shadow-2xl">
+            <!-- Header del Modal -->
+            <div class="bg-uide-primary/20 border-b border-uide-accent/30 p-4 sm:p-6 flex justify-between items-center">
+                <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-uide-accent">
+                    <i class="fas fa-list mr-2"></i>Índice de la Presentación
+                </h3>
+                <button id="closeIndexBtn"
+                    class="text-slate-700 dark:text-white/70 hover:text-slate-900 dark:hover:text-white text-2xl sm:text-3xl transition-colors w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-200 dark:hover:bg-white/10">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Lista de Slides -->
+            <div id="indexList" class="overflow-y-auto max-h-[calc(85vh-100px)] p-4 sm:p-6">
+                <!-- Los slides se generarán dinámicamente aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar (Fijo - NO MODIFICAR) -->
+    <div class="fixed bottom-0 left-0 w-full h-1 bg-white/10 z-50">
+        <div id="progressBar" class="h-full bg-uide-accent transition-all duration-300 w-0"></div>
+    </div>
+
+    <script src="js/presentacion.js"></script>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', () => {
+            // Check if View Transitions API is supported
+            if (!document.startViewTransition) {
+                toggleTheme();
+                return;
+            }
+
+            // Start View Transition
+            document.startViewTransition(() => {
+                toggleTheme();
+            });
+        });
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+    </script>
+</body>
+
+</html>

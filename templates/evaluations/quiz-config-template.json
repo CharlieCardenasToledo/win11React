@@ -1,0 +1,280 @@
+[
+  {
+    "question": {
+      "question_name": "Pregunta de Opción Múltiple",
+      "question_text": "<p>¿Cuál es la respuesta correcta?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 2,
+      "answers": [
+        {
+          "answer_text": "Opción A - Correcta",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Esta es la respuesta adecuada."
+        },
+        {
+          "answer_text": "Opción B - Incorrecta",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa el material de estudio."
+        },
+        {
+          "answer_text": "Opción C - Incorrecta",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esta no es la respuesta correcta."
+        },
+        {
+          "answer_text": "Opción D - Incorrecta",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Intenta de nuevo."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta Verdadero/Falso",
+      "question_text": "<p>La tierra es redonda.</p>",
+      "question_type": "true_false_question",
+      "points_possible": 1,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La tierra tiene forma esférica."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La tierra sí es redonda (esférica)."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Múltiples Respuestas",
+      "question_text": "<p>Selecciona todas las opciones correctas sobre el agua:</p>",
+      "question_type": "multiple_answers_question",
+      "points_possible": 3,
+      "answers": [
+        {
+          "answer_text": "Es un compuesto químico",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. El agua es H2O."
+        },
+        {
+          "answer_text": "Hierve a 100°C al nivel del mar",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. Esta es la temperatura de ebullición."
+        },
+        {
+          "answer_text": "Es un elemento químico",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El agua es un compuesto, no un elemento."
+        },
+        {
+          "answer_text": "Es esencial para la vida",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. El agua es fundamental para los seres vivos."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Respuesta Corta",
+      "question_text": "<p>¿Cuál es la capital de España?</p>",
+      "question_type": "short_answer_question",
+      "points_possible": 1,
+      "answers": [
+        {
+          "answer_text": "Madrid",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto!"
+        },
+        {
+          "answer_text": "madrid",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto!"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Múltiples Espacios en Blanco",
+      "question_text": "<p>Las rosas son [color1] y las violetas son [color2].</p>",
+      "question_type": "fill_in_multiple_blanks_question",
+      "points_possible": 2,
+      "answers": [
+        {
+          "answer_text": "rojas",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "color1"
+        },
+        {
+          "answer_text": "red",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "color1"
+        },
+        {
+          "answer_text": "azules",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "color2"
+        },
+        {
+          "answer_text": "blue",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "color2"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Menús Desplegables",
+      "question_text": "<p>Los cocodrilos son [color], los zombies comen [organo].</p>",
+      "question_type": "multiple_dropdowns_question",
+      "points_possible": 1,
+      "answers": [
+        {
+          "text": "cerebros",
+          "comments": "Correcto",
+          "weight": 100,
+          "blank_id": "organo"
+        },
+        {
+          "text": "ojos",
+          "comments": "Incorrecto",
+          "weight": 0,
+          "blank_id": "organo"
+        },
+        {
+          "text": "verdes",
+          "comments": "Correcto",
+          "weight": 100,
+          "blank_id": "color"
+        },
+        {
+          "text": "azules",
+          "comments": "Incorrecto",
+          "weight": 0,
+          "blank_id": "color"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta Numérica",
+      "question_text": "<p>¿Cuál es el resultado de 9 + 3?</p>",
+      "question_type": "numerical_question",
+      "points_possible": 1,
+      "answers": [
+        {
+          "text": "",
+          "comments": "Respuesta exacta correcta",
+          "weight": 100,
+          "numerical_answer_type": "exact_answer",
+          "exact": 12.0,
+          "margin": 0.0
+        },
+        {
+          "text": "",
+          "comments": "Rango aceptable",
+          "weight": 100,
+          "numerical_answer_type": "range_answer",
+          "start": 11.5,
+          "end": 12.5
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Fórmula",
+      "question_text": "<p>Calcula [x] + [y]</p>",
+      "question_type": "calculated_question",
+      "points_possible": 1,
+      "answers": [
+        {
+          "answer_text": "",
+          "answer_weight": 100,
+          "answer_comments": "Correcto"
+        }
+      ],
+      "variables": [
+        {
+          "name": "x",
+          "min": 1,
+          "max": 10,
+          "scale": 0
+        },
+        {
+          "name": "y",
+          "min": 1,
+          "max": 10,
+          "scale": 0
+        }
+      ],
+      "formulas": [
+        {
+          "formula": "x + y"
+        }
+      ],
+      "answer_tolerance": 0.01,
+      "formula_decimal_places": 2
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Palabra Faltante",
+      "question_text": "<p>El emperador que se sienta solo en su trono merece</p>",
+      "question_type": "missing_word_question",
+      "points_possible": 1,
+      "text_after_answers": "<p>por su soledad.</p>",
+      "answers": [
+        {
+          "answer_text": "compasión",
+          "answer_weight": 100,
+          "answer_comments": "Correcto"
+        },
+        {
+          "answer_text": "alabanza",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Ensayo",
+      "question_text": "<p>Resume tus sentimientos sobre la vida, el universo y todo lo demás.</p>",
+      "question_type": "essay_question",
+      "points_possible": 5,
+      "answers": []
+    }
+  },
+  {
+    "question": {
+      "question_name": "Pregunta de Carga de Archivo",
+      "question_text": "<p>Sube una foto de tu proyecto.</p>",
+      "question_type": "file_upload_question",
+      "points_possible": 10,
+      "answers": []
+    }
+  },
+  {
+    "question": {
+      "question_name": "Texto Informativo",
+      "question_text": "<p>Esta es información importante para el estudiante. No es una pregunta calificable.</p>",
+      "question_type": "text_only_question",
+      "points_possible": 0,
+      "answers": []
+    }
+  }
+]

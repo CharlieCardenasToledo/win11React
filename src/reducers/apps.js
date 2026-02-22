@@ -86,6 +86,17 @@ const appReducer = (state = defState, action) => {
     obj.z = tmpState.hz;
     tmpState["explorer"] = obj;
     return tmpState;
+  } else if (action.type == "OPENPPT") {
+    var obj = { ...tmpState["powerpoint"] };
+    obj.url = action.payload || null;
+
+    obj.size = "full";
+    obj.hide = false;
+    obj.max = true;
+    tmpState.hz += 1;
+    obj.z = tmpState.hz;
+    tmpState["powerpoint"] = obj;
+    return tmpState;
   } else if (action.type == "ADDAPP") {
     tmpState[action.payload.icon] = action.payload;
     tmpState[action.payload.icon].size = "full";

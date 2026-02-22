@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Simulación - Semana 1</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <link rel="stylesheet" href="../../assets/css/presentacion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Prism.js para highlighting de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-r.min.js" defer></script>
+
+    <script src="../../assets/js/presentacion.js" defer></script>
+</head>
+
+<body>
+    <!-- Logo UIDE (Fijo en todas las slides) -->
+    <div class="uide-logo">
+        <img src="../../assets/images/Logo%20UIDE.png" alt="UIDE Logo">
+    </div>
+
+    <div class="presentation-container">
+
+        <!-- ============================================ -->
+        <!-- SLIDE 1: CARÁTULA -->
+        <!-- ============================================ -->
+        <div class="slide active title-slide">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3
+                    style="color: #e2e8f0; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);">
+                    Presentación Semana 1
+                </h3>
+                <h2 style="color: var(--uide-accent); font-size: 2.2rem; font-weight: 600; margin-bottom: 0.5rem;">
+                    Fundamentos y Paradigmas de Simulación
+                </h2>
+                <p
+                    style="color: #ffffff; font-size: 1.4rem; font-weight: 500; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);">
+                    FT-06-SIM • Sexto Nivel
+                </p>
+                <p style="color: #e2e8f0; font-size: 1.2rem; margin-top: 0.5rem;">
+                    Simulación
+                </p>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <p
+                    style="color: #ffffff; font-size: 1.3rem; font-weight: 600; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);">
+                    Prof. Charlie Cárdenas Toledo, M.Sc.
+                </p>
+                <p style="color: var(--uide-accent); font-size: 1.2rem; font-weight: 500; margin-top: 0.5rem;">
+                    Octubre 2025 – Febrero 2026
+                </p>
+            </div>
+
+            <div
+                style="text-align: center; margin-top: 2.5rem; padding: 25px; background: rgba(15, 20, 25, 0.6); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: var(--uide-accent); font-size: 1.4rem; margin-bottom: 1rem; text-shadow: none;">
+                    <i class="fas fa-graduation-cap"></i> Introducción a la Simulación
+                </h3>
+                <p style="color: #e2e8f0; font-size: 1.1rem; line-height: 1.4; margin: 0.5rem 0;">
+                    <strong>Semana 1</strong> • Definición e Importancia • Tipos de Sistemas • Ventajas y Limitaciones
+                </p>
+                <p style="color: #cbd5e1; font-size: 1rem; margin-top: 1rem; font-style: italic;">
+                    Introducción a la asignatura y metodología de trabajo
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 2: ACTIVIDADES Y HERRAMIENTAS -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-clipboard-list"></i> Actividades Calificadas y Herramientas</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px;">
+                <!-- Columna Izquierda: Actividades Calificadas -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div
+                        style="padding: 20px; background: rgba(15, 20, 25, 0.6); border-radius: 12px; border: 2px solid var(--uide-primary);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="color: var(--uide-primary); font-size: 1.3rem; margin: 0;">
+                                <i class="fas fa-clipboard-check"></i> Actividades Calificadas
+                            </h3>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <!-- PE-1.1 -->
+                            <div
+                                style="background: rgba(74, 222, 128, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #4ade80;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                    <span style="color: #e2e8f0; font-size: 1rem; font-weight: 600;">
+                                        <i class="fas fa-flask"></i> PE-1.1: Taller Clasificación Sistemas
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1rem; font-weight: 700;">2.25 pts</span>
+                                </div>
+                                <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                                    Clasificación de 6 casos prácticos de sistemas
+                                </p>
+                            </div>
+
+                            <!-- TA-1.1 -->
+                            <div
+                                style="background: rgba(233, 171, 33, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                    <span style="color: #e2e8f0; font-size: 1rem; font-weight: 600;">
+                                        <i class="fas fa-file-alt"></i> TA-1.1: Ficha Lectura + Mapa Conceptos
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1rem; font-weight: 700;">2.25 pts</span>
+                                </div>
+                                <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                                    Análisis de lecturas y síntesis conceptual
+                                </p>
+                            </div>
+
+                            <!-- Total -->
+                            <div
+                                style="background: rgba(233, 171, 33, 0.2); padding: 15px; border-radius: 10px; border: 2px solid var(--uide-accent); margin-top: 5px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: var(--uide-accent); font-size: 1.1rem; font-weight: 700;">
+                                        <i class="fas fa-star"></i> Total Semana 1
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1.3rem; font-weight: 700;">4.5 pts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Herramientas y Recursos -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div
+                        style="padding: 20px; background: rgba(35, 53, 110, 0.3); border-radius: 12px; border: 2px solid #60a5fa;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="color: #60a5fa; font-size: 1.3rem; margin: 0;">
+                                <i class="fas fa-tools"></i> Recursos de Aprendizaje
+                            </h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-book-open" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Compendio Semana 1</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-file-medical" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">6 Casos de Estudio Reales</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-chalkboard-teacher" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Material de Lectura y Videos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 3: RESULTADOS DE APRENDIZAJE -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-bullseye"></i> Resultados de Aprendizaje</h2>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Al finalizar esta semana, el estudiante será capaz de:
+            </p>
+            <ul>
+                <li>Comprender la <span class="highlight">definición e importancia</span> de la simulación en la resolución de problemas complejos.</li>
+                <li>Identificar los <span class="highlight">tipos de sistemas y modelos</span> utilizados en simulación.</li>
+                <li>Reconocer las <span class="highlight">ventajas y limitaciones</span> de aplicar simulación en diversos contextos.</li>
+                <li>Desarrollar habilidad para <span class="highlight">clasificar sistemas</span> según sus características fundamentales.</li>
+                <li>Aplicar criterios técnicos para <span class="highlight">evaluar casos reales</span> y determinar la viabilidad de simulación.</li>
+            </ul>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 4: AGENDA -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-chart-line"></i> Agenda</h2>
+            <div class="content-grid">
+                <div class="feature-card">
+                    <h3>1. ¿Qué es Simulación?</h3>
+                    <p>Definiciones, ejemplos cotidianos y aplicaciones</p>
+                </div>
+                <div class="feature-card">
+                    <h3>2. Importancia y Ventajas</h3>
+                    <p>Por qué simular, beneficios y casos de uso</p>
+                </div>
+                <div class="feature-card">
+                    <h3>3. Tipos de Sistemas</h3>
+                    <p>Clasificación de sistemas y modelos</p>
+                </div>
+                <div class="feature-card">
+                    <h3>4. Limitaciones</h3>
+                    <p>Cuándo no es apropiado simular</p>
+                </div>
+                <div class="feature-card">
+                    <h3>5. Caso de Estudio</h3>
+                    <p>Clínica de Ginecología - Análisis práctico</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 5: ¿QUÉ ES SIMULACIÓN? -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-question-circle"></i> ¿Qué es Simulación?</h2>
+            <div class="quote">
+                "La simulación es el proceso de diseñar un modelo de un sistema real y llevar a término experiencias con él, con la finalidad de comprender el comportamiento del sistema o evaluar nuevas estrategias."
+                <footer style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">— Shannon</footer>
+            </div>
+            <div class="content-grid">
+                <div>
+                    <h3>En palabras simples</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Crear una <span class="emphasis">copia virtual</span> de algo real para experimentar sin riesgos,
+                        probar diferentes escenarios y tomar mejores decisiones.
+                    </p>
+                </div>
+                <div>
+                    <h3>Ejemplos cotidianos</h3>
+                    <ul>
+                        <li><span class="emphasis">Videojuegos</span>: Simulan realidades alternativas</li>
+                        <li><span class="emphasis">Simuladores de vuelo</span>: Entrenan pilotos</li>
+                        <li><span class="emphasis">Pronóstico del clima</span>: Predicción meteorológica</li>
+                        <li><span class="emphasis">Crash tests</span>: Seguridad automotriz</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 6: IMPORTANCIA Y VENTAJAS -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-chart-line"></i> ¿Por qué es Importante la Simulación?</h2>
+            <div class="content-grid">
+                <div class="feature-card">
+                    <h3><i class="fas fa-shield-alt"></i> Sin Riesgos</h3>
+                    <p>Experimentar sin consecuencias reales. Ideal para situaciones peligrosas o críticas.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-dollar-sign"></i> Económico</h3>
+                    <p>Más barato que experimentar con sistemas reales. Ahorro en recursos y tiempo.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-question"></i> "¿Qué pasaría si...?"</h3>
+                    <p>Responder preguntas estratégicas y evaluar escenarios hipotéticos.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-cogs"></i> Sistemas Complejos</h3>
+                    <p>Analizar lo que es muy difícil o imposible de estudiar analíticamente.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-clock"></i> Control del Tiempo</h3>
+                    <p>Acelerar o ralentizar procesos para su análisis detallado.</p>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-chart-bar"></i> Optimización</h3>
+                    <p>Encontrar configuraciones óptimas antes de implementar cambios reales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 7: TIPOS DE SISTEMAS -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-sitemap"></i> Tipos de Sistemas y Modelos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clasificación</th>
+                        <th>Tipo A</th>
+                        <th>Tipo B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Por Naturaleza del Tiempo</strong></td>
+                        <td><span class="emphasis">Discreto</span>: Cambios en puntos específicos (ej: llegada de clientes)</td>
+                        <td><span class="emphasis">Continuo</span>: Cambios constantes (ej: nivel de agua en tanque)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Por Aleatoriedad</strong></td>
+                        <td><span class="emphasis">Determinístico</span>: Sin componente aleatorio</td>
+                        <td><span class="emphasis">Estocástico</span>: Con variables aleatorias</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Por Propósito</strong></td>
+                        <td><span class="emphasis">Físico</span>: Representación tangible a escala</td>
+                        <td><span class="emphasis">Matemático</span>: Representación mediante ecuaciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Por Análisis</strong></td>
+                        <td><span class="emphasis">Analítico</span>: Solución matemática cerrada</td>
+                        <td><span class="emphasis">Numérico</span>: Solución mediante simulación</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 8: LIMITACIONES -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-exclamation-triangle"></i> Limitaciones de la Simulación</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Cuándo NO simular</h3>
+                    <ul>
+                        <li><span class="emphasis">Solución Analítica Disponible</span>: Si existe fórmula matemática simple</li>
+                        <li><span class="emphasis">Experimentación Directa Viable</span>: Cuando es más fácil y barato experimentar</li>
+                        <li><span class="emphasis">Falta de Datos</span>: Sin datos confiables, el modelo será inútil</li>
+                        <li><span class="emphasis">Recursos Insuficientes</span>: Tiempo, presupuesto o expertise limitados</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Desafíos comunes</h3>
+                    <ul>
+                        <li><span class="emphasis">Complejidad del Modelo</span>: Balance entre realismo y simplicidad</li>
+                        <li><span class="emphasis">Validación</span>: Asegurar que el modelo refleja la realidad</li>
+                        <li><span class="emphasis">Interpretación</span>: Resultados pueden malinterpretarse</li>
+                        <li><span class="emphasis">Tiempo de Desarrollo</span>: Construcción puede ser prolongada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 9: CASO DE ESTUDIO -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-hospital"></i> Caso de Estudio: Clínica de Ginecología</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Situación</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Una clínica especializada en Malasia presenta <span class="emphasis">problemas de tiempos de espera</span>
+                        y <span class="emphasis">aglomeraciones de pacientes</span>.
+                    </p>
+                    <h3 style="margin-top: 1.5rem;">Recursos</h3>
+                    <ul>
+                        <li>10 consultorios</li>
+                        <li>Personal médico especializado</li>
+                        <li>Salas de espera</li>
+                        <li>Sistema de turnos</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Objetivos de la Simulación</h3>
+                    <ul>
+                        <li><span class="emphasis">Reducir tiempos de espera</span>: Optimizar flujo de pacientes</li>
+                        <li><span class="emphasis">Mejorar utilización</span>: Aprovechar mejor los consultorios</li>
+                        <li><span class="emphasis">Identificar cuellos de botella</span>: Detectar problemas operativos</li>
+                        <li><span class="emphasis">Evaluar escenarios</span>: Probar diferentes configuraciones</li>
+                    </ul>
+                    <div class="quote" style="margin-top: 1.5rem;">
+                        <i class="fas fa-lightbulb"></i> Este caso será analizado en detalle durante las actividades prácticas
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 10: METODOLOGÍA FLIPPED CLASSROOM -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-sync-alt"></i> Metodología: Flipped Classroom</h2>
+            <div class="content-grid">
+                <div class="feature-card">
+                    <h3><i class="fas fa-home"></i> Antes de Clase</h3>
+                    <ul style="text-align: left; font-size: 0.95rem;">
+                        <li>Estudiar compendio semanal</li>
+                        <li>Revisar casos reales</li>
+                        <li>Realizar autoevaluaciones</li>
+                        <li>Anotar dudas específicas</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-school"></i> En Clase</h3>
+                    <ul style="text-align: left; font-size: 0.95rem;">
+                        <li>Prácticas evaluadas (PE)</li>
+                        <li>Análisis de casos individual/grupal</li>
+                        <li>Resolución de dudas</li>
+                        <li>Discusión técnica</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-tasks"></i> Después de Clase</h3>
+                    <ul style="text-align: left; font-size: 0.95rem;">
+                        <li>Completar trabajos autónomos (TA)</li>
+                        <li>Profundizar conceptos</li>
+                        <li>Preparar material siguiente semana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 11: EJEMPLO CÓDIGO SIMPLE -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-code"></i> Ejemplo: Simulación Simple en Python</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Conceptos Básicos</h3>
+                    <ul>
+                        <li>Generación de eventos aleatorios</li>
+                        <li>Seguimiento del tiempo</li>
+                        <li>Cálculo de métricas</li>
+                    </ul>
+                    <p style="font-size: 0.95rem; margin-top: 1rem; line-height: 1.6;">
+                        Este ejemplo muestra una simulación básica de llegada de clientes a un sistema de colas.
+                    </p>
+                </div>
+                <div>
+                    <h3>Código de Ejemplo</h3>
+                    <pre><code class="language-python">import random
+
+# Simulación simple de llegadas
+def simular_llegadas(n_clientes, tiempo_llegada):
+    tiempos = []
+    tiempo_actual = 0
+
+    for i in range(n_clientes):
+        # Tiempo entre llegadas (exponencial)
+        intervalo = random.expovariate(1/tiempo_llegada)
+        tiempo_actual += intervalo
+        tiempos.append(tiempo_actual)
+
+    return tiempos
+
+# Ejecutar simulación
+llegadas = simular_llegadas(100, 5.0)
+print(f"Primera llegada: {llegadas[0]:.2f} min")
+print(f"Última llegada: {llegadas[-1]:.2f} min")</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE 12: ACTIVIDADES CALIFICADAS DETALLADAS -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-clipboard-check"></i> Actividades Calificadas - Semana 1</h2>
+            <div class="content-grid">
+                <div class="feature-card">
+                    <h3><i class="fas fa-flask"></i> Gestión de Práctica</h3>
+                    <p style="color: var(--uide-accent); font-weight: 600; margin-bottom: 1rem;">PE-1.1 (2.25 puntos)</p>
+                    <p><strong>Taller Clasificación de Sistemas:</strong> Análisis y clasificación de 6 casos prácticos de sistemas reales</p>
+                    <ul style="margin-top: 1rem; font-size: 1rem;">
+                        <li>Caso 1: Sistema de Transporte Urbano</li>
+                        <li>Caso 2: Proceso de Manufactura</li>
+                        <li>Caso 3: Red de Telecomunicaciones</li>
+                        <li>Caso 4: Sistema Financiero</li>
+                        <li>Caso 5: Clínica de Ginecología</li>
+                        <li>Caso 6: Sistema de Inventario</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3><i class="fas fa-file-alt"></i> Trabajo Autónomo</h3>
+                    <p style="color: var(--uide-accent); font-weight: 600; margin-bottom: 1rem;">TA-1.1 (2.25 puntos)</p>
+                    <p><strong>Ficha de Lectura + Mapa de Conceptos:</strong> Síntesis y análisis del material de estudio</p>
+                    <ul style="margin-top: 1rem; font-size: 1rem;">
+                        <li>Lectura comprensiva del compendio</li>
+                        <li>Identificación de conceptos clave</li>
+                        <li>Elaboración de mapa conceptual</li>
+                        <li>Ficha de lectura con reflexiones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SLIDE FINAL: BIBLIOGRAFÍA -->
+        <!-- ============================================ -->
+        <div class="slide">
+            <h2><i class="fas fa-book"></i> Referencias Bibliográficas</h2>
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <ul style="font-size: 0.95rem; line-height: 1.7;">
+                    <li style="margin-bottom: 1.5rem;"><strong>Main Yaque, P., Navarro Veguillas, H. & Morales Fernández, A. (2019).</strong> <em>Simulación con ejercicios en R</em>. UNED - Universidad Nacional de Educación a Distancia. <a href="https://0310s3ikf-y-https-elibro-net.proxy.uide.edu.ec/es/lc/uide/titulos/111720" target="_blank" style="color: var(--uide-accent);">Enlace</a>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem; color: #cbd5e1;">
+                            <li>Introducción general: Ejemplos de aplicación de simulación estocástica (p. 44)</li>
+                            <li>Sección 2.1: Clasificación de simulaciones — determinística vs. estocástica (p. 46)</li>
+                            <li>Sección 2.2: Conceptos fundamentales de simulación, definiciones y elementos del sistema (pp. 52-53, 56, 58)</li>
+                            <li>Sección 2.2.1: Fases del estudio de simulación (pp. 59-60)</li>
+                            <li>Tema 1: Primeros pasos con R — entorno computacional (pp. 14-16)</li>
+                            <li>Tema 5, Sección 5.1: Simulación de Sucesos Discretos (p. 152)</li>
+                            <li>Tema 5, Sección 5.2: Modelos de colas (p. 158)</li>
+                            <li>Tema 5, Sección 5.3: Modelos de inventario (p. 167)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Fun, W. H., Tan, E. H., Khalid, R., Sararaks, S., Tang, K. F., Ab Rahim, I., Md Sharif, S., Jawahir, S., Sibert, R. M. Y., & Nawawi, M. K. M. (2022).</strong> Applying Discrete Event Simulation to Reduce Patient Wait Times and Crowding: The Case of a Specialist Outpatient Clinic with Dual Practice System. <em>Healthcare</em>, 10(2), 189. <a href="https://doi.org/10.3390/healthcare10020189" target="_blank" style="color: var(--uide-accent);">https://doi.org/10.3390/healthcare10020189</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <span class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">13</span>
+        </span>
+        <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressBar"></div>
+    </div>
+</body>
+
+</html>

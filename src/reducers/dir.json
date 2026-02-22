@@ -140,7 +140,20 @@
                             "data": {
                               "Material de clase": {
                                 "type": "folder",
-                                "name": "Material de clase"
+                                "name": "Material de clase",
+                                "data": {
+                                  "Semana 01 - Fundamentos de Simulacion.pptx": {
+                                    "type": "file",
+                                    "name": "Semana 01 - Fundamentos de Simulacion.pptx",
+                                    "info": {
+                                      "icon": "ppt"
+                                    },
+                                    "data": {
+                                      "kind": "pptx",
+                                      "url": "/material-docente/01-FT-06-SIM-MC/semana-01/presentacion.html"
+                                    }
+                                  }
+                                }
                               },
                               "Practica": {
                                 "type": "folder",

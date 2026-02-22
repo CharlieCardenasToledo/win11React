@@ -1,0 +1,84 @@
+/* View Transitions API - Theme Toggle Animation */
+::view-transition-new(root) {
+  /* Circular mask starting from top-right where button will be */
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="40" cy="0" r="18" fill="white" filter="url(%23blur)"/></svg>') top right / 0 no-repeat;
+  mask-origin: content-box;
+  animation: scale 1s;
+  animation-fill-mode: both;
+  transform-origin: top right;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: none;
+  animation-fill-mode: both;
+  z-index: -1;
+}
+
+.dark::view-transition-new(root) {
+  animation: scale 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes scale {
+  to {
+    mask-size: 350vmax;
+  }
+}
+
+::view-transition-group(root) {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: white;
+  color: #0f1419;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dark #theme-toggle {
+  background-color: #1f2937;
+  color: #E9AB21;
+  border-color: #374151;
+}
+
+/* Dark Mode Transitions */
+.slide,
+body,
+.presentation-container {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* CRITICAL: Slide Visibility Control */
+.slide {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}

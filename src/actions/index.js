@@ -261,6 +261,10 @@ export const handleFileOpen = (id) => {
   if (item != null) {
     if (item.type == "folder") {
       store.dispatch({ type: "FILEDIR", payload: item.id });
+    } else if (item.type == "file") {
+      if (item.data && item.data.kind == "pptx" && item.data.url) {
+        store.dispatch({ type: "OPENPPT", payload: item.data.url });
+      }
     }
   }
 };
