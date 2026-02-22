@@ -35,6 +35,18 @@ You can find other language versions of Win11React here.
 
 Simplified Chinese(**[中文简体](https://github.com/inwinter04/win11React_CN)**)
 
+## Internationalization (Current)
+
+- Active languages: `es` and `en` (plus legacy language options already present in the selector).
+- Default language: `es` (Spanish).
+- Updated localization coverage:
+  - Start menu, search panel, desktop icon labels
+  - File Explorer labels/navigation
+  - Context menu labels
+  - Settings labels and language selector
+  - Terminal command/help output
+  - Spotify app UI texts
+
 # Gallery
 
 ![image](https://user-images.githubusercontent.com/89068816/154832868-6ec81a0b-0bc3-4e77-a4bf-3391b852fe9c.png)
@@ -65,10 +77,20 @@ WHY NOT? Why not just waste a week of your life creating a React project, just t
 
 # Stack
 
-- Framework - React (^17.0.2) + Redux
+- Framework - React (^18.3.1) + Redux
 - Component/UI Library - None!!
-- Styling Solution - SCSS and CSS Modules (tailwind).
+- Build tool - Vite (^7.3.1)
+- Styling Solution - SCSS and Tailwind CSS (^4.2.0) via `@tailwindcss/vite`
 - Icons - fontawesome
+
+## Recent Update (2026-02-22)
+
+- Dependency refresh completed (including Vite/Tailwind toolchain).
+- Tailwind CSS v4 migration completed:
+  - Vite plugin integration with `@tailwindcss/vite`
+  - CSS import flow updated for Tailwind v4
+- PWA build cache limit adjusted for large bundle compatibility.
+- Full `es/en` localization pass completed, with Spanish as default.
 
 ## FAQ
 
