@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon } from "../../utils/general";
+import { getLocalizedAppName } from "../../utils/i18nLabels";
 
 export const StartMenu = () => {
+  const { t } = useTranslation();
   const { align } = useSelector((state) => state.taskbar);
   const start = useSelector((state) => {
     var arr = state.startmenu,
@@ -16,14 +19,17 @@ export const StartMenu = () => {
 
     for (i = 0; i < arr.rcApps.length; i++) {
       if (arr.rcApps[i].lastUsed < 0) {
-        arr.rcApps[i].lastUsed = "Recently Added";
+        arr.rcApps[i].lastUsed = t("start.recentlyAdded");
       } else if (arr.rcApps[i].lastUsed < 10) {
-        arr.rcApps[i].lastUsed = "Just Now";
+        arr.rcApps[i].lastUsed = t("start.justNow");
       } else if (arr.rcApps[i].lastUsed < 60) {
-        arr.rcApps[i].lastUsed += "m ago";
+        arr.rcApps[i].lastUsed = t("start.minutesAgo", {
+          count: arr.rcApps[i].lastUsed,
+        });
       } else if (arr.rcApps[i].lastUsed < 360) {
-        arr.rcApps[i].lastUsed =
-          Math.floor(arr.rcApps[i].lastUsed / 60) + "h ago";
+        arr.rcApps[i].lastUsed = t("start.hoursAgo", {
+          count: Math.floor(arr.rcApps[i].lastUsed / 60),
+        });
       }
     }
 
@@ -61,7 +67,7 @@ export const StartMenu = () => {
 
   const dispatch = useDispatch();
   const tabSw = (e) => {
-    setTab(e.target.innerText.trim());
+    setTab(e.target.dataset.tab);
   };
 
   const clickDispatch = (event) => {
@@ -120,13 +126,13 @@ export const StartMenu = () => {
             <div className="menuUp">
               <div className="pinnedApps">
                 <div className="stAcbar">
-                  <div className="gpname">Pinned</div>
+                  <div className="gpname">{t("start.pinned")}</div>
                   <div
                     className="gpbtn prtclk"
                     onClick={clickDispatch}
                     data-action="STARTALL"
                   >
-                    <div>All apps</div>
+                    <div>{t("start.allApps")}</div>
                     <Icon fafa="faChevronRight" width={8} />
                   </div>
                 </div>
@@ -144,7 +150,7 @@ export const StartMenu = () => {
                         data-payload={app.payload || "full"}
                       >
                         <Icon className="pnIcon" src={app.icon} width={32} />
-                        <div className="appName">{app.name}</div>
+                        <div className="appName">{getLocalizedAppName(app.name, t)}</div>
                       </div>
                     );
                   })}
@@ -152,9 +158,9 @@ export const StartMenu = () => {
               </div>
               <div className="recApps win11Scroll">
                 <div className="stAcbar">
-                  <div className="gpname">Recommended</div>
+                  <div className="gpname">{t("start.recommended")}</div>
                   <div className="gpbtn none">
-                    <div>More</div>
+                    <div>{t("start.more")}</div>
                     <Icon fafa="faChevronRight" width={8} />
                   </div>
                 </div>
@@ -169,9 +175,9 @@ export const StartMenu = () => {
                         data-action={app.action}
                         data-payload={app.payload || "full"}
                       >
-                        <Icon className="pnIcon" src={app.icon} width={32} />
-                        <div className="acInfo">
-                          <div className="appName">{app.name}</div>
+                          <Icon className="pnIcon" src={app.icon} width={32} />
+                          <div className="acInfo">
+                          <div className="appName">{getLocalizedAppName(app.name, t)}</div>
                           <div className="timeUsed">{app.lastUsed}</div>
                         </div>
                       </div>
@@ -184,14 +190,14 @@ export const StartMenu = () => {
           <div className="allCont" data-allapps={start.showAll}>
             <div className="appCont">
               <div className="stAcbar">
-                <div className="gpname">All apps</div>
+                <div className="gpname">{t("start.allApps")}</div>
                 <div
                   className="gpbtn prtclk"
                   onClick={clickDispatch}
                   data-action="STARTALL"
                 >
                   <Icon className="chevLeft" fafa="faChevronLeft" width={8} />
-                  <div>Back</div>
+                  <div>{t("start.back")}</div>
                 </div>
               </div>
               <div className="allApps win11Scroll" data-alpha={start.alpha}>
@@ -223,7 +229,7 @@ export const StartMenu = () => {
                         data-payload={app.payload || "full"}
                       >
                         <Icon className="pnIcon" src={app.icon} width={24} />
-                        <div className="appName">{app.name}</div>
+                        <div className="appName">{getLocalizedAppName(app.name, t)}</div>
                       </div>,
                     );
                   });
@@ -290,7 +296,7 @@ export const StartMenu = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span>Lock</span>
+                  <span>{t("start.lock")}</span>
                 </div>
                 <div
                   className="flex prtclk items-center gap-2"
@@ -309,7 +315,7 @@ export const StartMenu = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span>Shut down</span>
+                  <span>{t("start.shutdown")}</span>
                 </div>
                 <div
                   className="flex prtclk items-center gap-2"
@@ -328,7 +334,7 @@ export const StartMenu = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span>Restart</span>
+                  <span>{t("start.restart")}</span>
                 </div>
               </div>
               <svg
@@ -358,26 +364,30 @@ export const StartMenu = () => {
                 setQuery(event.target.value.trim());
               }}
               defaultValue={query}
-              placeholder="Type here to search"
+              placeholder={t("start.searchPlaceholder")}
               autoFocus
             />
           </div>
           <div className="flex py-4 px-1 text-xs">
             <div className="opts w-1/2 flex justify-between">
-              <div value={atab == "All"} onClick={tabSw}>
-                All
+              <div data-tab="All" value={atab == "All"} onClick={tabSw}>
+                {t("start.filterAll")}
               </div>
-              <div value={atab == "Apps"} onClick={tabSw}>
-                Apps
+              <div data-tab="Apps" value={atab == "Apps"} onClick={tabSw}>
+                {t("start.filterApps")}
               </div>
-              <div value={atab == "Documents"} onClick={tabSw}>
-                Documents
+              <div
+                data-tab="Documents"
+                value={atab == "Documents"}
+                onClick={tabSw}
+              >
+                {t("start.filterDocuments")}
               </div>
-              <div value={atab == "Web"} onClick={tabSw}>
-                Web
+              <div data-tab="Web" value={atab == "Web"} onClick={tabSw}>
+                {t("start.filterWeb")}
               </div>
-              <div value={atab == "More"} onClick={tabSw}>
-                More
+              <div data-tab="More" value={atab == "More"} onClick={tabSw}>
+                {t("start.filterMore")}
               </div>
             </div>
           </div>
@@ -387,15 +397,17 @@ export const StartMenu = () => {
               data-width={query.length != 0}
             >
               <div className="text-sm font-semibold mb-4">
-                {query.length ? "Best match" : "Top apps"}
+                {query.length ? t("start.bestMatch") : t("start.topApps")}
               </div>
               {query.length ? (
                 <div className="textResult h-16">
                   <div className="smatch flex my-2 p-3 rounded">
                     <Icon src={match.icon} width={24} />
                     <div className="matchInfo flex-col px-2">
-                      <div className="font-semibold text-xs">{match.name}</div>
-                      <div className="text-xss">App</div>
+                      <div className="font-semibold text-xs">
+                        {getLocalizedAppName(match.name, t)}
+                      </div>
+                      <div className="text-xss">{t("start.app")}</div>
                     </div>
                   </div>
                   <div
@@ -406,8 +418,10 @@ export const StartMenu = () => {
                   >
                     <Icon className="blueicon" src="search" ui width={20} />
                     <div className="matchInfo flex-col px-2">
-                      <div className="font-semibold text-xs">Search online</div>
-                      <div className="text-xss">Web</div>
+                      <div className="font-semibold text-xs">
+                        {t("start.searchOnline")}
+                      </div>
+                      <div className="text-xss">{t("start.web")}</div>
                     </div>
                   </div>
                 </div>
@@ -424,13 +438,13 @@ export const StartMenu = () => {
                           data-payload={app.payload || "full"}
                         >
                           <Icon src={app.icon} width={30} />
-                          <div className="text-xs mt-2">{app.name}</div>
+                          <div className="text-xs mt-2">{getLocalizedAppName(app.name, t)}</div>
                         </div>
                       );
                     })}
                   </div>
                   <div className="text-sm font-semibold mt-8">
-                    Quick Searches
+                    {t("start.quickSearches")}
                   </div>
                   <div className="quickSearches mt-2">
                     {start.qksrch.map((srch, i) => {
@@ -440,10 +454,10 @@ export const StartMenu = () => {
                           className="qksrch flex items-center p-3 my-1 handcr prtclk"
                           onClick={clickDispatch}
                           data-action="EDGELINK"
-                          data-payload={srch[2]}
+                          data-payload={t(srch[2])}
                         >
                           <Icon fafa={srch[0]} reg={srch[1]} />
-                          <div className="ml-4 text-sm">{srch[2]}</div>
+                          <div className="ml-4 text-sm">{t(srch[2])}</div>
                         </div>
                       );
                     })}
@@ -454,8 +468,8 @@ export const StartMenu = () => {
             {query.length ? (
               <div className="w-2/3 rightSide rounded">
                 <Icon className="mt-6" src={match.icon} width={64} />
-                <div className="">{match.name}</div>
-                <div className="text-xss mt-2">App</div>
+                <div className="">{getLocalizedAppName(match.name, t)}</div>
+                <div className="text-xss mt-2">{t("start.app")}</div>
                 <div className="hline mt-8"></div>
                 <div
                   className="openlink w-4/5 flex prtclk handcr pt-3"
@@ -464,7 +478,7 @@ export const StartMenu = () => {
                   data-payload={match.payload ? match.payload : "full"}
                 >
                   <Icon className="blueicon" src="link" ui width={16} />
-                  <div className="text-xss ml-3">Open</div>
+                  <div className="text-xss ml-3">{t("start.open")}</div>
                 </div>
               </div>
             ) : null}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { changeTheme } from "../../../actions";
 import { Image, ToolBar } from "../../../utils/general";
 import LangSwitch from "./assets/Langswitch";
@@ -17,6 +18,20 @@ export const Settings = () => {
   const [nav, setNav] = useState("");
   const [updating, setUpdating] = useState(false);
   const [upmodalOpen, setUpmodalOpen] = useState(false);
+  const { t } = useTranslation();
+  const sectionI18nKeys = {
+    System: "settings.section.system",
+    "Bluetooth & devices": "settings.section.bluetoothDevices",
+    "Network & internet": "settings.section.networkInternet",
+    Personalisation: "settings.section.personalisation",
+    Apps: "settings.section.apps",
+    Accounts: "settings.section.accounts",
+    "Time & language": "settings.section.timeLanguage",
+    Gaming: "settings.section.gaming",
+    Accessibility: "settings.section.accessibility",
+    "Privacy & security": "settings.section.privacySecurity",
+    "Windows Update": "settings.section.windowsUpdate",
+  };
 
   const themechecker = {
     default: "light",
@@ -60,7 +75,7 @@ export const Settings = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Settings"
+        name={t("settings.appName")}
       />
       <div className="windowScreen flex flex-col" data-dock="true">
         <div className="restWindow flex-grow flex flex-col">
@@ -75,13 +90,13 @@ export const Settings = () => {
                 />
                 <div>
                   <p>{userName}</p>
-                  <p>Local Account</p>
+                  <p>{t("settings.localAccount")}</p>
                 </div>
               </div>
               <input
                 type="text"
                 className="search"
-                placeholder="Find a setting "
+                placeholder={t("settings.searchPlaceholder")}
                 name="search"
               />
             </div>
@@ -102,7 +117,7 @@ export const Settings = () => {
                       height={16}
                       width={16}
                     />
-                    {e}
+                    {t(sectionI18nKeys[e] || e)}
                   </div>
                 );
               })}
@@ -114,7 +129,7 @@ export const Settings = () => {
             return (
               page === e && (
                 <main key={e}>
-                  <h1>{e}</h1>
+                  <h1>{t(sectionI18nKeys[e] || e)}</h1>
                   <div className="tilesCont win11Scroll">
                     {data[e].map((e, i) => {
                       switch (e.type) {
@@ -130,7 +145,9 @@ export const Settings = () => {
                                 <div className="column_device">
                                   <p className="device_name">Liber-V</p>
                                   <p className="device_model">NS14A8</p>
-                                  <p className="device_rename">Rename</p>
+                                  <p className="device_rename">
+                                    {t("settings.rename")}
+                                  </p>
                                 </div>
                               </div>
                               <div className="right">
@@ -144,7 +161,7 @@ export const Settings = () => {
                                     Microsoft 365
                                     <br />
                                     <span className="column_lower">
-                                      View benefits
+                                      {t("settings.viewBenefits")}
                                     </span>
                                   </p>
                                 </div>
@@ -158,10 +175,10 @@ export const Settings = () => {
                                     height={20}
                                   />
                                   <p>
-                                    Windows Update
+                                    {t("settings.section.windowsUpdate")}
                                     <br />
                                     <span className="column_lower">
-                                      You're up to date
+                                      {t("settings.upToDate")}
                                     </span>
                                   </p>
                                 </div>
@@ -178,24 +195,25 @@ export const Settings = () => {
                                   height={100}
                                 />
                                 <div>
-                                  <h2 className="font-medium text-lg">WiFi</h2>
-                                  <p>Connected, secured</p>
+                                  <h2 className="font-medium text-lg">{t("sidepane.wifi")}</h2>
+                                  <p>{t("settings.connectedSecured")}</p>
                                 </div>
                               </div>
                               <div className="box">
                                 <span className="settingsIcon"></span>
                                 <div>
-                                  <h3>Properties</h3>
-                                  <p>Public network 5 Ghz</p>
+                                  <h3>{t("settings.properties")}</h3>
+                                  <p>{t("settings.publicNetwork")}</p>
                                 </div>
                               </div>
                               <div className="box">
                                 <span className="settingsIcon"></span>
                                 <div>
-                                  <h3>Data Usage</h3>
+                                  <h3>{t("settings.dataUsage")}</h3>
                                   <p>
-                                    {Math.round(Math.random() * 100)}GB, last 30
-                                    days
+                                    {t("settings.dataUsageLastDays", {
+                                      gb: Math.round(Math.random() * 100),
+                                    })}
                                   </p>
                                 </div>
                               </div>
@@ -210,7 +228,7 @@ export const Settings = () => {
                                 alt=""
                               />
                               <div>
-                                <h3>Select a theme to apply</h3>
+                                <h3>{t("settings.selectTheme")}</h3>
                                 <div className="bgBox">
                                   {wall.themes.map((e, i) => {
                                     return (
@@ -241,8 +259,8 @@ export const Settings = () => {
                               />
                               <div>
                                 <p>{userName.toUpperCase()}</p>
-                                <p>Local Account</p>
-                                <p>Administrator</p>
+                                <p>{t("settings.localAccount")}</p>
+                                <p>{t("settings.administrator")}</p>
                               </div>
                             </div>
                           );
@@ -263,10 +281,9 @@ export const Settings = () => {
                             <div key={i} className="tile langSwitcherTile">
                               <span className="settingsIcon"></span>
                               <div className="tile_content">
-                                <p>Windows display language</p>
+                                <p>{t("settings.windowsDisplayLanguage")}</p>
                                 <p className="tile_desc">
-                                  Windows features like Settings and File
-                                  Explorer will appear in this language
+                                  {t("settings.windowsDisplayLanguageDesc")}
                                 </p>
                               </div>
                               <LangSwitch />
@@ -282,8 +299,8 @@ export const Settings = () => {
                                   alt=""
                                 />
                                 <div>
-                                  <h2>You're up to date</h2>
-                                  <p>Last checked: Today</p>
+                                  <h2>{t("settings.upToDate")}</h2>
+                                  <p>{t("settings.lastCheckedToday")}</p>
                                 </div>
                               </div>
                               <div className="right">
@@ -298,8 +315,8 @@ export const Settings = () => {
                                   }}
                                 >
                                   {updating
-                                    ? "Checking for updates..."
-                                    : "Check for updates"}
+                                    ? t("settings.checkingForUpdates")
+                                    : t("settings.checkForUpdates")}
                                 </div>
                               </div>
                             </div>
@@ -354,11 +371,10 @@ export const Settings = () => {
                   }}
                   className="text-2xl font-semibold"
                 >
-                  Restart required
+                  {t("settings.restartRequiredTitle")}
                 </h1>
                 <p>
-                  Some changes will not take effect until you restart your
-                  device.
+                  {t("settings.restartRequiredDesc")}
                 </p>
 
                 <div
@@ -381,7 +397,7 @@ export const Settings = () => {
                     }}
                     className="flex-1 rounded border-none hover:opacity-95"
                   >
-                    Restart now
+                    {t("settings.restartNow")}
                   </button>
                   <button
                     style={{
@@ -393,7 +409,7 @@ export const Settings = () => {
                       setUpmodalOpen(false);
                     }}
                   >
-                    Restart later
+                    {t("settings.restartLater")}
                   </button>
                 </div>
               </div>

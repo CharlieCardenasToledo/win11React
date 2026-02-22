@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon, ToolBar, LazyComponent } from "../../../utils/general";
 
 import WidgetBot from "@widgetbot/react-embed";
 
 export const DScord = () => {
   const wnapp = useSelector((state) => state.apps.discord);
+  const { t } = useTranslation();
   const [url, setUrl] = useState(null);
   const servers = [
     {
@@ -51,7 +53,7 @@ export const DScord = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Discord"
+        name={t("discord.appName")}
         bg="#282a2f"
         invert
       />
@@ -94,7 +96,7 @@ export const DScord = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Join
+                {t("discord.join")}
               </a>
             </div>
           </div>

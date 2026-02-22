@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useDispatch, useSelector } from "react-redux";
+import i18next from "i18next";
 import "./i18nextConf";
 import "./index.css";
 
@@ -32,8 +33,10 @@ function ErrorFallback({ error, resetErrorBoundary }) {
         <div id="container">
           <h1>:(</h1>
           <h2>
-            Your PC ran into a problem and needs to restart. We're just
-            collecting some error info, and then we'll restart for you.
+            {i18next.t(
+              "error.pcProblem",
+              "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.",
+            )}
           </h2>
           <h2>
             <span id="percentage">0</span>% complete
@@ -46,18 +49,26 @@ function ErrorFallback({ error, resetErrorBoundary }) {
             </div>
             <div id="stopcode">
               <h4>
-                For more information about this issue and possible fixes, visit
+                {i18next.t(
+                  "error.moreInfo",
+                  "For more information about this issue and possible fixes, visit",
+                )}
                 <br />{" "}
                 <a href="https://github.com/blueedgetechno/win11React/issues">
                   https://github.com/blueedgetechno/win11React/issues
                 </a>{" "}
               </h4>
               <h5>
-                If you call a support person, give them this info:
+                {i18next.t(
+                  "error.supportInfo",
+                  "If you call a support person, give them this info:",
+                )}
                 <br />
-                Stop Code: {error.message}
+                {i18next.t("error.stopCode", "Stop Code")}: {error.message}
               </h5>
-              <button onClick={resetErrorBoundary}>Try again</button>
+              <button onClick={resetErrorBoundary}>
+                {i18next.t("error.tryAgain", "Try again")}
+              </button>
             </div>
           </div>
         </div>

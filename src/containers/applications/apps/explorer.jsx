@@ -1,8 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon, Image, ToolBar } from "../../../utils/general";
 import { dispatchAction, handleFileOpen } from "../../../actions";
 import "./assets/fileexpo.scss";
+
+const EXPLORER_LABEL_KEYS = {
+  backup: "explorer.label.backup",
+  config: "explorer.label.config",
+  "Program Files": "explorer.label.programFiles",
+  temp: "explorer.label.temp",
+  Users: "explorer.label.users",
+  Public: "explorer.label.public",
+  "Public Documents": "explorer.label.publicDocuments",
+  "Public Downloads": "explorer.label.publicDownloads",
+  "Public Music": "explorer.label.publicMusic",
+  "Public Pictures": "explorer.label.publicPictures",
+  "Public Videos": "explorer.label.publicVideos",
+  Desktop: "explorer.label.desktopFolder",
+  Documents: "explorer.label.documentsFolder",
+  Downloads: "explorer.label.downloadsFolder",
+  Music: "explorer.label.musicFolder",
+  Pictures: "explorer.label.picturesFolder",
+  Videos: "explorer.label.videosFolder",
+  OneDrive: "explorer.label.oneDriveFolder",
+  Contacts: "explorer.label.contacts",
+  Favorites: "explorer.label.favorites",
+  Programs: "explorer.label.programs",
+  "New Folder": "explorer.label.newFolder",
+  Windows: "explorer.label.windows",
+  Github: "explorer.label.githubFolder",
+  Blue: "explorer.label.blueUser",
+};
+
+const getExplorerLabel = (t, label) => {
+  const key = EXPLORER_LABEL_KEYS[label];
+  return key ? t(key) : label;
+};
 
 const NavTitle = (props) => {
   var src = props.icon || "folder";
@@ -25,6 +59,7 @@ const NavTitle = (props) => {
 };
 
 const FolderDrop = ({ dir }) => {
+  const { t } = useTranslation();
   const files = useSelector((state) => state.files);
   const folder = files.data.getId(dir);
 
@@ -37,7 +72,7 @@ const FolderDrop = ({ dir }) => {
               <Dropdown
                 key={i}
                 icon={item.info && item.info.icon}
-                title={item.name}
+                title={getExplorerLabel(t, item.name)}
                 notoggle={item.data.length == 0}
                 dir={item.id}
               />
@@ -100,6 +135,7 @@ export const Explorer = () => {
   const [cpath, setPath] = useState(files.cpath);
   const [searchtxt, setShText] = useState("");
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleChange = (e) => setPath(e.target.value);
   const handleSearchChange = (e) => setShText(e.target.value);
@@ -125,7 +161,7 @@ export const Explorer = () => {
             data-action="FILEDIR"
             data-payload={curr.id}
           >
-            {curr.name}
+            {getExplorerLabel(t, curr.name)}
           </div>
           <Icon className="dirchev" fafa="faChevronRight" width={8} />
         </div>,
@@ -137,7 +173,7 @@ export const Explorer = () => {
     arr.push(
       <div key={index++} className="dirCont flex items-center">
         <div className="dncont" tabIndex="-1">
-          This PC
+          {t("explorer.thisPc")}
         </div>
         <Icon className="dirchev" fafa="faChevronRight" width={8} />
       </div>,
@@ -182,7 +218,7 @@ export const Explorer = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="File Explorer"
+        name={t("explorer.appName")}
       />
       <div className="windowScreen flex flex-col">
         <Ribbon />
@@ -230,7 +266,7 @@ export const Explorer = () => {
                 type="text"
                 onChange={handleSearchChange}
                 value={searchtxt}
-                placeholder="Search"
+                placeholder={t("explorer.search")}
               />
             </div>
           </div>
@@ -239,7 +275,9 @@ export const Explorer = () => {
             <ContentArea searchtxt={searchtxt} />
           </div>
           <div className="sec3">
-            <div className="item-count text-xs">{fdata.data.length} items</div>
+            <div className="item-count text-xs">
+              {t("explorer.itemsCount", { count: fdata.data.length })}
+            </div>
             <div className="view-opts flex">
               <Icon
                 className="viewicon hvtheme p-1"
@@ -266,6 +304,7 @@ export const Explorer = () => {
 };
 
 const ContentArea = ({ searchtxt }) => {
+  const { t } = useTranslation();
   const files = useSelector((state) => state.files);
   const special = useSelector((state) => state.files.data.special);
   const [selected, setSelect] = useState(null);
@@ -302,8 +341,14 @@ const ContentArea = ({ searchtxt }) => {
       <div className="contentwrap win11Scroll">
         <div className="gridshow" data-size="lg">
           {fdata.data.map((item, i) => {
+            const displayName = getExplorerLabel(t, item.name);
+            const query = searchtxt.trim().toLowerCase();
+            const matches =
+              !query ||
+              item.name.toLowerCase().includes(query) ||
+              displayName.toLowerCase().includes(query);
             return (
-              item.name.includes(searchtxt) && (
+              matches && (
                 <div
                   key={i}
                   className="conticon hvtheme flex flex-col items-center prtclk"
@@ -313,14 +358,14 @@ const ContentArea = ({ searchtxt }) => {
                   onDoubleClick={handleDouble}
                 >
                   <Image src={`icon/win/${item.info.icon}`} />
-                  <span>{item.name}</span>
+                  <span>{displayName}</span>
                 </div>
               )
             );
           })}
         </div>
         {fdata.data.length == 0 ? (
-          <span className="text-xs mx-auto">This folder is empty.</span>
+          <span className="text-xs mx-auto">{t("explorer.emptyFolder")}</span>
         ) : null}
       </div>
     </div>
@@ -328,41 +373,61 @@ const ContentArea = ({ searchtxt }) => {
 };
 
 const NavPane = ({}) => {
+  const { t } = useTranslation();
   const files = useSelector((state) => state.files);
   const special = useSelector((state) => state.files.data.special);
 
   return (
     <div className="navpane win11Scroll">
       <div className="extcont">
-        <Dropdown icon="star" title="Quick access" action="" isDropped>
+        <Dropdown icon="star" title={t("explorer.quickAccess")} action="" isDropped>
           <Dropdown
             icon="down"
-            title="Downloads"
+            title={t("explorer.downloads")}
             spid="%downloads%"
             notoggle
             pinned
           />
-          <Dropdown icon="user" title="Blue" spid="%user%" notoggle pinned />
+          <Dropdown
+            icon="user"
+            title={t("explorer.user")}
+            spid="%user%"
+            notoggle
+            pinned
+          />
           <Dropdown
             icon="docs"
-            title="Documents"
+            title={t("explorer.documents")}
             spid="%documents%"
             notoggle
             pinned
           />
-          <Dropdown title="Github" spid="%github%" notoggle />
-          <Dropdown icon="pics" title="Pictures" spid="%pictures%" notoggle />
+          <Dropdown title={t("explorer.github")} spid="%github%" notoggle />
+          <Dropdown
+            icon="pics"
+            title={t("explorer.pictures")}
+            spid="%pictures%"
+            notoggle
+          />
         </Dropdown>
-        <Dropdown icon="onedrive" title="OneDrive" spid="%onedrive%" />
-        <Dropdown icon="thispc" title="This PC" action="" isDropped>
-          <Dropdown icon="desk" title="Desktop" spid="%desktop%" />
-          <Dropdown icon="docs" title="Documents" spid="%documents%" />
-          <Dropdown icon="down" title="Downloads" spid="%downloads%" />
-          <Dropdown icon="music" title="Music" spid="%music%" />
-          <Dropdown icon="pics" title="Pictures" spid="%pictures%" />
-          <Dropdown icon="vid" title="Videos" spid="%videos%" />
-          <Dropdown icon="disc" title="OS (C:)" spid="%cdrive%" />
-          <Dropdown icon="disk" title="Blue (D:)" spid="%ddrive%" />
+        <Dropdown
+          icon="onedrive"
+          title={t("explorer.oneDrive")}
+          spid="%onedrive%"
+        />
+        <Dropdown icon="thispc" title={t("explorer.thisPc")} action="" isDropped>
+          <Dropdown icon="desk" title={t("explorer.desktop")} spid="%desktop%" />
+          <Dropdown icon="docs" title={t("explorer.documents")} spid="%documents%" />
+          <Dropdown icon="down" title={t("explorer.downloads")} spid="%downloads%" />
+          <Dropdown icon="music" title={t("explorer.music")} spid="%music%" />
+          <Dropdown icon="pics" title={t("explorer.pictures")} spid="%pictures%" />
+          <Dropdown icon="vid" title={t("explorer.videos")} spid="%videos%" />
+          <Dropdown icon="disc" title={t("explorer.osDrive")} spid="%cdrive%" />
+          <Dropdown
+            icon="disk"
+            title={t("explorer.dataDrive")}
+            spid="%ddrive%"
+          />
         </Dropdown>
       </div>
     </div>
@@ -370,12 +435,13 @@ const NavPane = ({}) => {
 };
 
 const Ribbon = ({}) => {
+  const { t } = useTranslation();
   return (
     <div className="msribbon flex">
       <div className="ribsec">
         <div className="drdwcont flex">
           <Icon src="new" ui width={18} margin="0 6px" />
-          <span>New</span>
+          <span>{t("explorer.new")}</span>
         </div>
       </div>
       <div className="ribsec">
@@ -388,11 +454,11 @@ const Ribbon = ({}) => {
       <div className="ribsec">
         <div className="drdwcont flex">
           <Icon src="sort" ui width={18} margin="0 6px" />
-          <span>Sort</span>
+          <span>{t("explorer.sort")}</span>
         </div>
         <div className="drdwcont flex">
           <Icon src="view" ui width={18} margin="0 6px" />
-          <span>View</span>
+          <span>{t("explorer.view")}</span>
         </div>
       </div>
     </div>

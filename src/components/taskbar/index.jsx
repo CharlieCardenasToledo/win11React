@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import i18next from "i18next";
 import { Icon } from "../../utils/general";
 import Battery from "../shared/Battery";
 import "./taskbar.scss";
@@ -53,6 +54,11 @@ const Taskbar = () => {
   };
 
   const [time, setTime] = useState(new Date());
+  const locale = (i18next.resolvedLanguage || i18next.language || "es").startsWith(
+    "es",
+  )
+    ? "es-ES"
+    : "en-US";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -159,13 +165,13 @@ const Taskbar = () => {
             data-action="CALNTOGG"
           >
             <div>
-              {time.toLocaleTimeString("en-US", {
+              {time.toLocaleTimeString(locale, {
                 hour: "numeric",
                 minute: "numeric",
               })}
             </div>
             <div>
-              {time.toLocaleDateString("en-US", {
+              {time.toLocaleDateString(locale, {
                 year: "2-digit",
                 month: "2-digit",
                 day: "numeric",

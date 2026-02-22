@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import * as Actions from "../../actions";
 import { getTreeValue } from "../../actions";
 import { Icon } from "../../utils/general";
+import { getLocalizedAppName } from "../../utils/i18nLabels";
 import Battery from "../shared/Battery";
 import "./searchpane.scss";
 import "./sidepane.scss";
@@ -12,6 +14,7 @@ export * from "./start";
 export * from "./widget";
 
 export const DesktopApp = () => {
+  const { t } = useTranslation();
   const deskApps = useSelector((state) => {
     var arr = { ...state.desktop };
     var tmpApps = [...arr.apps];
@@ -62,7 +65,9 @@ export const DesktopApp = () => {
                 width={Math.round(deskApps.size * 36)}
                 menu="app"
               />
-              <div className="appName">{app.name}</div>
+              <div className="appName">
+                {getLocalizedAppName(app.name, t)}
+              </div>
             </div>
           );
         })}
@@ -109,6 +114,7 @@ export const BandPane = () => {
 };
 
 export const SidePane = () => {
+  const { t } = useTranslation();
   const sidepane = useSelector((state) => state.sidepane);
   const setting = useSelector((state) => state.setting);
   const tasks = useSelector((state) => state.taskbar);
@@ -228,7 +234,18 @@ export const SidePane = () => {
                     invert={pnstates[idx] ? true : null}
                   />
                 </div>
-                <div className="qktext">{qk.name}</div>
+                <div className="qktext">
+                  {t(
+                    {
+                      WiFi: "sidepane.wifi",
+                      Bluetooth: "sidepane.bluetooth",
+                      "Flight Mode": "sidepane.flightMode",
+                      "Battery Saver": "sidepane.batterySaver",
+                      "Night Light": "sidepane.nightLight",
+                      Theme: "sidepane.theme",
+                    }[qk.name] || qk.name,
+                  )}
+                </div>
               </div>
             );
           })}
@@ -267,6 +284,7 @@ export const SidePane = () => {
 };
 
 export const CalnWid = () => {
+  const { i18n } = useTranslation();
   const sidepane = useSelector((state) => state.sidepane);
   const [loaded, setLoad] = useState(false);
 
@@ -286,6 +304,7 @@ export const CalnWid = () => {
         monthformat: "full",
         prevnextbutton: "show",
         highlighttoday: true,
+        monthandyearformat: "full",
       });
     }
   });
@@ -298,11 +317,16 @@ export const CalnWid = () => {
     >
       <div className="topBar pl-4 text-sm">
         <div className="date">
-          {new Date().toLocaleDateString(undefined, {
+          {new Date().toLocaleDateString(
+            (i18n.resolvedLanguage || "es").startsWith("es")
+              ? "es-ES"
+              : "en-US",
+            {
             weekday: "long",
             month: "long",
             day: "numeric",
-          })}
+            },
+          )}
         </div>
         <div className="collapser p-2 m-4 rounded" onClick={collapseToggler}>
           {collapse === "" ? (

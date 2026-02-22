@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { ToolBar } from "../../../utils/general";
 import { Icon } from "../../../utils/general";
 import "./assets/taskmanager.scss";
@@ -14,22 +15,29 @@ apps.map((e) => {
 
 export const Taskmanager = () => {
   const wnapp = useSelector((state) => state.apps.taskmanager);
+  const { t } = useTranslation();
 
   const [tab, setTab] = useState("Processes");
   const [nav, setNav] = useState("open");
 
   const tabNames = [
-    { title: "Processes", icon: "faTableCellsLarge" },
-    { title: "Performance", icon: "faWaveSquare" },
-    { title: "App history", icon: "faClockRotateLeft" },
-    { title: "Startup apps", icon: "faGaugeHigh" },
-    { title: "Users", icon: "faUser" },
-    { title: "Details", icon: "faList" },
-    { title: "Services", icon: "faPuzzlePiece" },
-    { title: "Settings", icon: "faGear" },
+    { title: "Processes", icon: "faTableCellsLarge", label: t("taskmgr.processes") },
+    { title: "Performance", icon: "faWaveSquare", label: t("taskmgr.performance") },
+    { title: "App history", icon: "faClockRotateLeft", label: t("taskmgr.appHistory") },
+    { title: "Startup apps", icon: "faGaugeHigh", label: t("taskmgr.startupApps") },
+    { title: "Users", icon: "faUser", label: t("taskmgr.users") },
+    { title: "Details", icon: "faList", label: t("taskmgr.details") },
+    { title: "Services", icon: "faPuzzlePiece", label: t("taskmgr.services") },
+    { title: "Settings", icon: "faGear", label: t("taskmgr.settings") },
   ];
 
-  const powerUsage = ["Very low", "Low", "Moderate", "High", "Very High"];
+  const powerUsage = [
+    t("taskmgr.power.veryLow"),
+    t("taskmgr.power.low"),
+    t("taskmgr.power.moderate"),
+    t("taskmgr.power.high"),
+    t("taskmgr.power.veryHigh"),
+  ];
 
   return (
     <div
@@ -47,7 +55,7 @@ export const Taskmanager = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Task Manager"
+        name={t("taskmgr.appName")}
       />
       <div className="windowScreen flex flex-col" data-dock="true">
         <div className="restWindow flex-grow flex flex-col">
@@ -60,14 +68,16 @@ export const Taskmanager = () => {
                   onClick={() => setTab(t.title)}
                 >
                   <Icon className="mx-2" fafa={t.icon} />
-                  <span className="tabName">{t.title}</span>
+                  <span className="tabName">{t.label}</span>
                 </div>
               );
             })}
             <div className="marker"></div>
           </nav>
           <main className="win11Scroll">
-            <h3>{tab}</h3>
+            <h3>
+              {tabNames.find((x) => x.title === tab)?.label || tab}
+            </h3>
             {(() => {
               switch (tab) {
                 case "Processes":
@@ -76,13 +86,13 @@ export const Taskmanager = () => {
                       <table>
                         <thead>
                           <tr>
-                            <th>Name</th>
+                            <th>{t("taskmgr.name")}</th>
                             <th>CPU</th>
-                            <th>Memory</th>
-                            <th>Disk</th>
-                            <th>Network</th>
+                            <th>{t("taskmgr.memory")}</th>
+                            <th>{t("taskmgr.disk")}</th>
+                            <th>{t("taskmgr.network")}</th>
                             <th>GPU</th>
-                            <th>Power Usage</th>
+                            <th>{t("taskmgr.powerUsage")}</th>
                           </tr>
                         </thead>
                         <tbody>

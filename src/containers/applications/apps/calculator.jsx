@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon, ToolBar } from "../../../utils/general";
 
 export const Calculator = () => {
   const wnapp = useSelector((state) => state.apps.calculator);
+  const { t } = useTranslation();
   const [equa, setEqua] = useState([]);
   const [cval, setCval] = useState("0");
   const [err, setErr] = useState(null);
@@ -42,7 +44,7 @@ export const Calculator = () => {
         if (num != 0) {
           var inv = 1 / num;
         } else {
-          setErr("Cannot divide by zero");
+          setErr(t("calc.err.divideByZero"));
           return;
         }
         setCval(inv.toString());
@@ -55,7 +57,7 @@ export const Calculator = () => {
         if (val[0] != "-") {
           var sqrt = Math.sqrt(num);
         } else {
-          setErr("Invalid Input");
+          setErr(t("calc.err.invalidInput"));
           return;
         }
         setCval(sqrt.toString());
@@ -114,7 +116,7 @@ export const Calculator = () => {
             if (tpq[2] != 0) {
               tpq[4] = tpq[0] / tpq[2];
             } else {
-              setErr("Cannot divide by zero");
+              setErr(t("calc.err.divideByZero"));
               return;
             }
           } else if (tpq[1] == "x") {
@@ -151,13 +153,13 @@ export const Calculator = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Calculator"
+        name={t("calc.appName")}
       />
       <div className="windowScreen flex flex-col" data-dock="true">
         <div className="flex pt-2">
           <div className="flex pl-2 items-center">
             <Icon className="menuBars" fafa="faBars" color="#222" width={14} />
-            <div className="mx-4 font-semibold pb-1">Standard</div>
+            <div className="mx-4 font-semibold pb-1">{t("calc.standard")}</div>
           </div>
         </div>
         <div className="restWindow h-full flex-grow flex">
@@ -252,9 +254,9 @@ export const Calculator = () => {
             </div>
           </div>
           <div className="calcHis flex flex-col">
-            <div className="text-sm font-semibold">History</div>
+            <div className="text-sm font-semibold">{t("calc.history")}</div>
             {hist.length != 0 ? null : (
-              <div className="text-xs mt-4">There's no history yet</div>
+              <div className="text-xs mt-4">{t("calc.noHistory")}</div>
             )}
             <div className="histCont win11Scroll">
               <div className="hct h-max flex-grow">

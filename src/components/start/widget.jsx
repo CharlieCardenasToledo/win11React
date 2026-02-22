@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon, LazyComponent } from "../../utils/general";
 import "./widget.scss";
 
 export const WidPane = () => {
   const dispatch = useDispatch();
+  const { t, i18n } = useTranslation();
   const widget = useSelector((state) => state.widpane);
   const theme = useSelector((state) => state.setting.person.theme);
   const getRandom = (x = 0) => {
@@ -26,16 +28,21 @@ export const WidPane = () => {
             <Icon fafa="faEllipsisH" width={12} />
           </div>
           <div className="widTime">
-            {new Date().toLocaleTimeString("en-US", {
+            {new Date().toLocaleTimeString(
+              (i18n.resolvedLanguage || "es").startsWith("es")
+                ? "es-ES"
+                : "en-US",
+              {
               hour: "numeric",
               minute: "2-digit",
-            })}
+              },
+            )}
           </div>
           <div className="widgetCont">
             <div className="topWidgets">
               <div className="weatherCont ltShad">
                 <div className="wthtop">
-                  <Icon src="weather" width={18} /> <span>Weather</span>
+                  <Icon src="weather" width={18} /> <span>{t("widget.weather")}</span>
                 </div>
                 <div className="wthcity">
                   <Icon fafa="faMapMarkerAlt" width={8} />
@@ -68,8 +75,8 @@ export const WidPane = () => {
                 <div className="weekWthCont">
                   {widget.data.weather.days.map((item, i) => {
                     return (
-                      <div key={i} className="weekDay">
-                        <div>{i == 0 ? "Today" : item.day}</div>
+                        <div key={i} className="weekDay">
+                        <div>{i == 0 ? t("widget.today") : item.day}</div>
                         <Icon
                           src={`https://www.metaweather.com/static/img/weather/png/64/${item.icon}.png`}
                           ext
@@ -85,7 +92,7 @@ export const WidPane = () => {
               </div>
               <div className="shortCont">
                 <div className="short0 ltShad">
-                  <div className="shName">MONEY | MARKET</div>
+                  <div className="shName">{t("widget.moneyMarket")}</div>
                   <div className="shEntry">
                     <div className="stockName">
                       <Icon src="google" ui width={12} />
@@ -132,11 +139,11 @@ export const WidPane = () => {
                     })`,
                   }}
                 >
-                  <div className="shName">
-                    <div className="flex">
-                      <Icon fafa="faLandmark" width={8} />
-                      &nbsp;ON THIS DAY
-                    </div>
+                    <div className="shName">
+                      <div className="flex">
+                        <Icon fafa="faLandmark" width={8} />
+                        &nbsp;{t("widget.onThisDay")}
+                      </div>
                     <div>{widget.data.date}</div>
                   </div>
                   <div className="infotextCont">
@@ -149,7 +156,7 @@ export const WidPane = () => {
                       target="_blank"
                       className="wikiref"
                     >
-                      more on wiki
+                      {t("widget.moreOnWiki")}
                     </a>
                   </div>
                 </div>
@@ -157,7 +164,7 @@ export const WidPane = () => {
             </div>
             <div className="newsCont">
               <div className="topStories ltShad">
-                <div className="topNewsText">TOP STORIES</div>
+                <div className="topNewsText">{t("widget.topStories")}</div>
                 <div className="topNewsCont">
                   {[...widget.data.news].splice(0, 4).map((article, i) => {
                     return (

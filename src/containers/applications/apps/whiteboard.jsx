@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Image, ToolBar } from "../../../utils/general";
 
 import CanvasDraw from "@win11react/react-canvas-draw";
@@ -7,6 +8,7 @@ import { Mark } from "./assets";
 
 export const WhiteBoard = () => {
   const wnapp = useSelector((state) => state.apps.board);
+  const { t } = useTranslation();
   const [color, setColor] = useState("#222222");
   const [radii, setRadii] = useState(4);
   const [eraze, setErz] = useState(false);
@@ -55,7 +57,7 @@ export const WhiteBoard = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Whiteboard"
+        name={t("whiteboard.appName")}
         bg="#f9f9f9"
         noinvert
       />

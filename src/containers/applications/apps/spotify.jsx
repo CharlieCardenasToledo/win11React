@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon, Image, ToolBar, LazyComponent } from "../../../utils/general";
 import ReactPlayer from "react-player";
 import jiosaavn from "./assets/jiosaavn";
@@ -19,6 +20,7 @@ String.prototype.to250 = function () {
 };
 
 export const Spotify = () => {
+  const { t } = useTranslation();
   const wnapp = useSelector((state) => state.apps.spotify);
   const [tab, setTab] = useState(0);
   const [paused, setPause] = useState(true);
@@ -34,11 +36,11 @@ export const Spotify = () => {
   const [saved, setSaved] = useState({});
 
   const libr = [
-    "Made For You",
-    "Recently Played",
-    "Favorite Songs",
-    "Albums",
-    "Artist",
+    t("spotify.library.madeForYou"),
+    t("spotify.library.recentlyPlayed"),
+    t("spotify.library.favoriteSongs"),
+    t("spotify.library.albums"),
+    t("spotify.library.artist"),
   ];
   const action = (e) => {
     var act = e.target.dataset.action,
@@ -252,7 +254,7 @@ export const Spotify = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Spotify Music"
+        name={t("spotify.appName")}
         invert
       />
       <div className="windowScreen flex flex-col">
@@ -269,7 +271,7 @@ export const Spotify = () => {
                   data-payload="0"
                 >
                   <Icon icon="home" width={24} />
-                  <div className="ml-4 text-sm">Home</div>
+                  <div className="ml-4 text-sm">{t("spotify.home")}</div>
                 </div>
                 <div
                   className="snav my-4 handcr font-semibold"
@@ -279,10 +281,10 @@ export const Spotify = () => {
                   data-payload="1"
                 >
                   <Icon fafa="faCompactDisc" width={24} />
-                  <div className="ml-4 text-sm">Browse</div>
+                  <div className="ml-4 text-sm">{t("spotify.browse")}</div>
                 </div>
                 <div className="text-gray-500 text-xs font-semibold tracking-widest mt-10 mb-4">
-                  YOUR LIBRARY
+                  {t("spotify.yourLibrary")}
                 </div>
                 <div className="navcont overflow-y-scroll win11Scroll win11ScrollDark">
                   <div className="w-full h-max">
@@ -299,7 +301,7 @@ export const Spotify = () => {
                       </div>
                     ))}
                     <div className="text-gray-500 font-semibold text-xs tracking-widest mt-12 mb-4">
-                      PLAYLISTS
+                      {t("spotify.playlists")}
                     </div>
                     {data.playlist.map((play, i) => (
                       <div
@@ -366,13 +368,13 @@ export const Spotify = () => {
                   <div
                     className="text-sm mb-2 text-gray-100 font-semibold"
                     dangerouslySetInnerHTML={{
-                      __html: queue[curr].name || "Album",
+                      __html: queue[curr].name || t("spotify.albumFallback"),
                     }}
                   ></div>
                   <div
                     className="text-xs tracking-wider text-gray-400"
                     dangerouslySetInnerHTML={{
-                      __html: queue[curr].artist || "Artist",
+                      __html: queue[curr].artist || t("spotify.artistFallback"),
                     }}
                   ></div>
                 </div>
@@ -519,6 +521,7 @@ export const Spotify = () => {
 };
 
 const Search = ({ sid, action }) => {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [newQuery, setNew] = useState(false);
   const [songResults, setSResults] = useState([]);
@@ -570,7 +573,7 @@ const Search = ({ sid, action }) => {
             className="w-64 ml-2 bg-transparent py-3 rounded-full text-base"
             value={query}
             type="text"
-            placeholder="Artist, song or album"
+            placeholder={t("spotify.searchPlaceholder")}
             onChange={handleQuery}
           />
           <Icon className="handcr" icon="search" onClick={searchSpotify} />
@@ -579,7 +582,7 @@ const Search = ({ sid, action }) => {
       <div className="flex">
         <div className="flex flex-col text-gray-100 min-w-1/3 max-w-2/5">
           <span className="text-xl font-black">
-            {songResults.length ? "Top result" : "Recent searches"}
+            {songResults.length ? t("spotify.topResult") : t("spotify.recentSearches")}
           </span>
           {songResults.length == 0 ? (
             <div className="mt-2">
@@ -621,8 +624,8 @@ const Search = ({ sid, action }) => {
         {songResults && songResults.length ? (
           <div className="flex flex-col text-gray-100 ml-8 flex-grow">
             <span className="flex justify-between">
-              <span className="text-xl font-black">Songs</span>
-              <span className="acol font-semibold handcr">see all</span>
+              <span className="text-xl font-black">{t("spotify.songs")}</span>
+              <span className="acol font-semibold handcr">{t("spotify.seeAll")}</span>
             </span>
             <div className="mt-4">
               {[...songResults].splice(1, 4).map((song, i) => (
@@ -666,7 +669,7 @@ const Search = ({ sid, action }) => {
               {">"}
             </div>
           </div>
-          <div className="text-xl text-gray-100 font-bold">Albums</div>
+          <div className="text-xl text-gray-100 font-bold">{t("spotify.albums")}</div>
           <div className="w-full h-px mt-2"></div>
           <div className="w-full overflow-x-scroll smoothsc noscroll -ml-3">
             <div className="w-max flex">
@@ -703,6 +706,7 @@ const Search = ({ sid, action }) => {
 };
 
 const Playlist = ({ type, tdata, action, action2, sid, paused }) => {
+  const { t } = useTranslation();
   const [data, setData] = useState({ fake: true });
   const [loaded, setLoaded] = useState(false);
   const [ptype, setPtype] = useState(true);
@@ -765,7 +769,7 @@ const Playlist = ({ type, tdata, action, action2, sid, paused }) => {
               ""}{" "}
             <span className="text-gray-400 text-xs">
               • {data.year || "2020"} •{" "}
-              {(data.songs && data.songs.length) || "0"} song
+              {(data.songs && data.songs.length) || "0"} {t("spotify.song")}
               {data.songs && data.songs.length > 1 ? "s" : null},{" "}
               {jiosaavn.formatPeriod(totTime)}
             </span>
@@ -774,7 +778,7 @@ const Playlist = ({ type, tdata, action, action2, sid, paused }) => {
             className="playbtn"
             onClick={() => action2("playall", data.songs)}
           >
-            PLAY
+            {t("spotify.play")}
           </div>
         </div>
       </div>
@@ -782,9 +786,9 @@ const Playlist = ({ type, tdata, action, action2, sid, paused }) => {
       <div className="alsongs">
         <div className="srow">
           <div className="font-bold text-right">#</div>
-          <div className="scol1 text-xs">TITLE</div>
-          <div className="text-xs">{ptype ? "ALBUM" : null}</div>
-          <div className="text-xs">{ptype ? "YEAR" : null}</div>
+          <div className="scol1 text-xs">{t("spotify.title")}</div>
+          <div className="text-xs">{ptype ? t("spotify.album") : null}</div>
+          <div className="text-xs">{ptype ? t("spotify.year") : null}</div>
           <div className="flex justify-end">
             <Icon fafa="faClock" width={16} reg />
           </div>
@@ -979,10 +983,11 @@ const Home = ({ tab, action, sid, paused }) => {
 };
 
 const Queue = ({ queue, curr, action2, paused }) => {
+  const { t } = useTranslation();
   return (
     <div className="mt-12">
-      <div className="text-5xl text-gray-100 font-bold">Play Queue</div>
-      <div className="text-gray-400 font-semibold my-4">Now playing</div>
+      <div className="text-5xl text-gray-100 font-bold">{t("spotify.playQueue")}</div>
+      <div className="text-gray-400 font-semibold my-4">{t("spotify.nowPlaying")}</div>
       <div className="songCont prtclk acol py-2 pr-12">
         <div className="w-10 text-center gcol">
           {paused ? (
@@ -1010,7 +1015,7 @@ const Queue = ({ queue, curr, action2, paused }) => {
           {jiosaavn.formatTime(queue[curr].duration)}
         </div>
       </div>
-      <div className="text-gray-400 font-semibold mt-12 mb-6">Next up</div>
+      <div className="text-gray-400 font-semibold mt-12 mb-6">{t("spotify.nextUp")}</div>
       {jiosaavn.sliceArr(queue, curr).map((qs, i) => {
         return (
           <div

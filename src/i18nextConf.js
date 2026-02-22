@@ -4,7 +4,7 @@ import Backend from "i18next-xhr-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { i18nextPlugin } from "translation-check";
 
-const fallbackLng = ["en"];
+const fallbackLng = ["es"];
 const availableLanguages = [
   "en",
   "da",
@@ -28,13 +28,16 @@ i18n
   .use(initReactI18next) // pass the i18n instance to react-i18next.
   .use(i18nextPlugin)
   .init({
-    fallbackLng, // fallback language is english.
+    lng: "es",
+    fallbackLng, // fallback language is spanish.
 
     backend: {
       loadPath: "locales/{{lng}}/translate.json",
     },
 
     detection: {
+      order: ["localStorage"],
+      caches: ["localStorage"],
       checkWhitelist: true, // options for language detection
     },
 

@@ -10,10 +10,10 @@ const defState = {
   pwctrl: false,
   curAlpha: "A",
   qksrch: [
-    ["faClock", 1, "Today in history"],
-    ["faChartLine", null, "Markets today"],
-    ["faFilm", null, "New movies"],
-    ["faNewspaper", 1, "Top news"],
+    ["faClock", 1, "start.quick.todayInHistory"],
+    ["faChartLine", null, "start.quick.marketsToday"],
+    ["faFilm", null, "start.quick.newMovies"],
+    ["faNewspaper", 1, "start.quick.topNews"],
   ],
 };
 

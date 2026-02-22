@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 import login from "../../../components/login";
 import { installApp, delApp } from "../../../actions";
 
@@ -9,7 +10,14 @@ import dirs from "./assets/dir.json";
 
 export const WnTerminal = () => {
   const wnapp = useSelector((state) => state.apps.terminal);
-  const [stack, setStack] = useState(["OS [Version 10.0.22000.51]", ""]);
+  const { t, i18n } = useTranslation();
+  const locale = (i18n.resolvedLanguage || i18n.language || "es").startsWith("es")
+    ? "es-ES"
+    : "en-US";
+  const [stack, setStack] = useState([
+    t("terminal.versionLine"),
+    "",
+  ]);
   const [pwd, setPwd] = useState("C:\\Users\\Blue");
   const [lastCmd, setLsc] = useState(0);
   const [wntitle, setWntitle] = useState("Terminal");
@@ -69,7 +77,7 @@ export const WnTerminal = () => {
       if (arg.length) {
         tmpStack.push(arg);
       } else {
-        tmpStack.push("ECHO is on.");
+        tmpStack.push(t("terminal.echoOn"));
       }
     } else if (type == "eval") {
       if (arg.length) {
@@ -77,7 +85,7 @@ export const WnTerminal = () => {
       }
     } else if (type == "install") {
       if (arg.length) {
-        tmpStack.push("Installing app");
+        tmpStack.push(t("terminal.installingApp"));
         var arg = arg.toString().split(" ");
         console.log(arg);
         var AppName = arg[0];
@@ -94,11 +102,11 @@ export const WnTerminal = () => {
           },
         };
         installApp(Json);
-        tmpStack.push("App installed");
+        tmpStack.push(t("terminal.appInstalled"));
       }
     } else if (type == "uninstall") {
       if (arg.length) {
-        tmpStack.push("Uninstalling app");
+        tmpStack.push(t("terminal.uninstallingApp"));
         var arg = arg.toString().split(" ");
         var AppName = arg[0];
         tmpStack.push(AppName);
@@ -117,7 +125,7 @@ export const WnTerminal = () => {
         console.log(Mainmenu);
 
         delApp("delete", Mainmenu);
-        tmpStack.push("App uninstalled");
+        tmpStack.push(t("terminal.appUninstalled"));
       }
     } else if (type == "python") {
       if (arg.length) {
@@ -154,17 +162,17 @@ export const WnTerminal = () => {
           }
         } else {
           errp = false;
-          tmpStack.push("The directory name is invalid.");
+          tmpStack.push(t("terminal.dirNameInvalid"));
         }
 
         if (errp) {
-          tmpStack.push("The system cannot find the path specified.");
+          tmpStack.push(t("terminal.pathNotFound"));
         }
       } else {
         tmpStack.push(pwd);
       }
     } else if (type == "dir") {
-      tmpStack.push(" Directory of " + pwd);
+      tmpStack.push(`${t("terminal.directoryOf")} ${pwd}`);
       tmpStack.push("");
       tmpStack.push("<DIR>    .");
       tmpStack.push("<DIR>    ..");
@@ -199,30 +207,30 @@ export const WnTerminal = () => {
         cmdcont.style.color = color;
       } else {
         tmpStack.push(
-          "Set the color of the background and the text for the console.",
+          t("terminal.colorHelpLine1"),
         );
-        tmpStack.push("COLOR [arg]");
-        tmpStack.push("arg\t\tSpecifies the color for the console output");
+        tmpStack.push(t("terminal.colorHelpLine2"));
+        tmpStack.push(t("terminal.colorHelpLine3"));
         tmpStack.push(
-          "The color attribute is a combination of the following values:",
+          t("terminal.colorHelpLine4"),
         );
-        tmpStack.push("0\t\tBlack");
-        tmpStack.push("1\t\tBlue");
-        tmpStack.push("2\t\tGreen");
-        tmpStack.push("3\t\tCyan");
-        tmpStack.push("4\t\tRed");
-        tmpStack.push("5\t\tMagenta");
-        tmpStack.push("6\t\tBrown");
-        tmpStack.push("7\t\tLight Gray");
-        tmpStack.push("8\t\tDark Gray");
-        tmpStack.push("9\t\tLight Blue");
-        tmpStack.push("A\t\tLight Green");
-        tmpStack.push("B\t\tLight Cyan");
-        tmpStack.push("C\t\tLight Red");
-        tmpStack.push("D\t\tLight Magenta");
-        tmpStack.push("E\t\tYellow");
-        tmpStack.push("F\t\tWhite");
-        tmpStack.push("Example: COLOR 0a for black text on a green background");
+        tmpStack.push(t("terminal.colorHelpLine5"));
+        tmpStack.push(t("terminal.colorHelpLine6"));
+        tmpStack.push(t("terminal.colorHelpLine7"));
+        tmpStack.push(t("terminal.colorHelpLine8"));
+        tmpStack.push(t("terminal.colorHelpLine9"));
+        tmpStack.push(t("terminal.colorHelpLine10"));
+        tmpStack.push(t("terminal.colorHelpLine11"));
+        tmpStack.push(t("terminal.colorHelpLine12"));
+        tmpStack.push(t("terminal.colorHelpLine13"));
+        tmpStack.push(t("terminal.colorHelpLine14"));
+        tmpStack.push(t("terminal.colorHelpLine15"));
+        tmpStack.push(t("terminal.colorHelpLine16"));
+        tmpStack.push(t("terminal.colorHelpLine17"));
+        tmpStack.push(t("terminal.colorHelpLine18"));
+        tmpStack.push(t("terminal.colorHelpLine19"));
+        tmpStack.push(t("terminal.colorHelpLine20"));
+        tmpStack.push(t("terminal.colorHelpLine21"));
       }
     } else if (type == "type") {
       var errp = true;
@@ -245,27 +253,29 @@ export const WnTerminal = () => {
       }
 
       if (errp) {
-        tmpStack.push("The system cannot find the file specified.");
+        tmpStack.push(t("terminal.fileNotFound"));
       }
     } else if (type == "start") {
       dispatch({ type: "EDGELINK", payload: arg });
     } else if (type == "date") {
-      tmpStack.push("The current date is: " + new Date().toLocaleDateString());
+      tmpStack.push(
+        `${t("terminal.currentDate")} ${new Date().toLocaleDateString(locale)}`,
+      );
     } else if (type == "time") {
       tmpStack.push(
-        "The current time is: " +
+        `${t("terminal.currentTime")} ` +
           new Date()
-            .toLocaleTimeString("en-GB", {
+            .toLocaleTimeString(locale, {
               hour: "2-digit",
               minute: "2-digit",
               second: "2-digit",
             })
             .replaceAll(":", ".") +
           "." +
-          Math.floor(Math.random() * 100),
+        Math.floor(Math.random() * 100),
       );
     } else if (type == "exit") {
-      tmpStack = ["OS [Version 10.0.22000.51]", ""];
+      tmpStack = [t("terminal.versionLine"), ""];
       dispatch({ type: wnapp.action, payload: "close" });
     } else if (type == "title") {
       setWntitle(arg.length ? arg : "Terminal");
@@ -273,7 +283,7 @@ export const WnTerminal = () => {
       tmpStack.push("blue");
     } else if (type == "login") {
       login();
-      tmpStack.push("started login");
+      tmpStack.push(t("terminal.startedLogin"));
     } else if (type == "lang-test") {
       i18next.changeLanguage("fr-FR");
       tmpStack.push("French");
@@ -282,18 +292,18 @@ export const WnTerminal = () => {
     } else if (type == "dev") {
       tmpStack.push("https://dev.blueedge.me/");
     } else if (type == "ver") {
-      tmpStack.push("OS [Version 10.0.22000.51]");
+      tmpStack.push(t("terminal.versionLine"));
     } else if (type == "systeminfo") {
       var dvInfo = [
-        "Host Name:                 BLUE",
-        "OS Name:                   Win11React Dummys Edition",
-        "OS Version:                10.0.22000 N/A Build 22000.51",
-        "OS Manufacturer:           ",
-        "OS Configuration:          Standalone Workstation",
-        "OS Build Type:             Multiprocessor Free",
-        "Registered Owner:          Blue",
-        "Registered Organization:   N/A",
-        "Product ID:                7H1S1-5AP1R-473DV-3R5I0N",
+        t("terminal.systeminfo.hostName"),
+        t("terminal.systeminfo.osName"),
+        t("terminal.systeminfo.osVersion"),
+        t("terminal.systeminfo.osManufacturer"),
+        t("terminal.systeminfo.osConfiguration"),
+        t("terminal.systeminfo.osBuildType"),
+        t("terminal.systeminfo.registeredOwner"),
+        t("terminal.systeminfo.registeredOrg"),
+        t("terminal.systeminfo.productId"),
       ];
 
       for (var i = 0; i < dvInfo.length; i++) {
@@ -301,24 +311,24 @@ export const WnTerminal = () => {
       }
     } else if (type == "help") {
       var helpArr = [
-        "CD             Displays the name of or changes the current directory.",
-        "CLS            Clears the screen.",
-        "COLOR		Sets the default console foreground and background colors.",
-        "DATE           Displays or sets the date.",
-        "DIR            Displays a list of files and subdirectories in a directory.",
-        "ECHO           Displays messages, or turns command echoing on or off.",
-        "EXIT           Quits the CMD.EXE program (command interpreter).",
-        "HELP           Provides Help information for Windows commands.",
-        "START          Starts a separate window to run a specified program or command.",
-        "SYSTEMINFO     Displays machine specific properties and configuration.",
-        "TIME           Displays or sets the system time.",
-        "TITLE          Sets the window title for a CMD.EXE session.",
-        "TYPE           Displays the contents of a text file.",
-        "VER            Displays the Windows version.",
-        "PYTHON         EXECUTE PYTHON CODE.",
-        "EVAL           RUNS JavaScript statements.",
-        "INSTALL        Instal a app with app name and iframe url",
-        "UNINSTALL      Uninstal a app with app name",
+        t("terminal.help.cd"),
+        t("terminal.help.cls"),
+        t("terminal.help.color"),
+        t("terminal.help.date"),
+        t("terminal.help.dir"),
+        t("terminal.help.echo"),
+        t("terminal.help.exit"),
+        t("terminal.help.help"),
+        t("terminal.help.start"),
+        t("terminal.help.systeminfo"),
+        t("terminal.help.time"),
+        t("terminal.help.title"),
+        t("terminal.help.type"),
+        t("terminal.help.ver"),
+        t("terminal.help.python"),
+        t("terminal.help.eval"),
+        t("terminal.help.install"),
+        t("terminal.help.uninstall"),
       ];
 
       for (var i = 0; i < helpArr.length; i++) {
@@ -327,21 +337,21 @@ export const WnTerminal = () => {
     } else if (type == "") {
     } else if (type == "ipconfig") {
       const IP = IpDetails[0];
-      tmpStack.push("Windows IP Configuration");
+      tmpStack.push(t("terminal.ipconfig.title"));
       tmpStack.push("");
-      tmpStack.push("IPv6: " + IP.ip);
-      tmpStack.push("Network: " + IP.network);
-      tmpStack.push("City: " + IP.city);
-      tmpStack.push("Network Org: " + IP.org);
-      tmpStack.push("Region: " + IP.region);
-      tmpStack.push("Postal: " + IP.postal);
+      tmpStack.push(`${t("terminal.ipconfig.ipv6")} ${IP.ip}`);
+      tmpStack.push(`${t("terminal.ipconfig.network")} ${IP.network}`);
+      tmpStack.push(`${t("terminal.ipconfig.city")} ${IP.city}`);
+      tmpStack.push(`${t("terminal.ipconfig.org")} ${IP.org}`);
+      tmpStack.push(`${t("terminal.ipconfig.region")} ${IP.region}`);
+      tmpStack.push(`${t("terminal.ipconfig.postal")} ${IP.postal}`);
     } else {
       tmpStack.push(
-        `'${type}' is not recognized as an internal or external command,`,
+        t("terminal.commandNotRecognized", { cmd: type }),
       );
-      tmpStack.push("operable program or batch file.");
+      tmpStack.push(t("terminal.commandNotRecognizedLine2"));
       tmpStack.push("");
-      tmpStack.push('Type "help" for available commands');
+      tmpStack.push(t("terminal.typeHelp"));
     }
 
     if (type.length > 0) tmpStack.push("");

@@ -208,6 +208,7 @@ export const MicroStore = () => {
 
 const DownPage = ({ action, apps }) => {
   const [catg, setCatg] = useState("all");
+  const { t } = useTranslation();
 
   return (
     <div className="pagecont w-full absolute top-0 box-border p-12">
@@ -217,21 +218,21 @@ const DownPage = ({ action, apps }) => {
           value={catg == "all"}
           onClick={() => setCatg("all")}
         >
-          All
+          {t("store.all")}
         </div>
         <div
           className="catbtn handcr"
           value={catg == "app"}
           onClick={() => setCatg("app")}
         >
-          Apps
+          {t("store.apps")}
         </div>
         <div
           className="catbtn handcr"
           value={catg == "game"}
           onClick={() => setCatg("game")}
         >
-          Games
+          {t("store.games")}
         </div>
         <div className="absolute right-0 mr-4 text-sm">
           <a
@@ -240,7 +241,7 @@ const DownPage = ({ action, apps }) => {
             target="_blank"
             rel="noreferrer"
           >
-            Add your own app
+            {t("store.addYourOwnApp")}
           </a>
         </div>
       </div>
@@ -300,7 +301,7 @@ const DownPage = ({ action, apps }) => {
                 />
                 <div className="text-xss">{reviews}k</div>
               </div>
-              <div className="text-xss mt-8">{"Free"}</div>
+              <div className="text-xss mt-8">{t("store.free")}</div>
             </div>
           );
         })}
@@ -347,21 +348,21 @@ const DetailPage = ({ app }) => {
         />
         <div className="flex flex-col items-center text-center relative">
           <div className="text-2xl font-semibold mt-6">{app.name}</div>
-          <div className="text-xs text-blue-500">Community</div>
+          <div className="text-xs text-blue-500">{t("store.community")}</div>
           {dstate == 0 ? (
             <div className="instbtn mt-12 mb-8 handcr" onClick={download}>
-              Get
+              {t("store.get")}
             </div>
           ) : null}
           {dstate == 1 ? <div className="downbar mt-12 mb-8"></div> : null}
           {dstate == 2 ? (
             <div className="instbtn mt-12 mb-8 handcr" onClick={refresh}>
-              Refresh
+              {t("store.refresh")}
             </div>
           ) : null}
           {dstate == 3 ? (
             <div className="instbtn mt-12 mb-8 handcr" onClick={openApp}>
-              Open
+              {t("store.open")}
             </div>
           ) : null}
           <div className="flex mt-4">
@@ -374,14 +375,14 @@ const DetailPage = ({ app }) => {
                   width={14}
                 />
               </div>
-              <span className="text-xss">Average</span>
+              <span className="text-xss">{t("store.average")}</span>
             </div>
             <div className="w-px bg-gray-300 mx-4"></div>
             <div>
               <div className="text-sm font-semibold">
                 {Math.round(reviews / 100) / 10}K
               </div>
-              <div className="text-xss mt-px pt-1">Ratings</div>
+              <div className="text-xss mt-px pt-1">{t("store.ratings")}</div>
             </div>
           </div>
           <div className="descnt text-xs relative w-0">{app.data.desc}</div>
@@ -390,7 +391,7 @@ const DetailPage = ({ app }) => {
       <div className="growcont flex flex-col">
         {app.data.gallery && app.data.gallery.length ? (
           <div className="briefcont py-2 pb-3">
-            <div className="text-xs font-semibold">Screenshots</div>
+            <div className="text-xs font-semibold">{t("store.screenshots")}</div>
             <div className="overflow-x-scroll win11Scroll mt-4">
               <div className="w-max flex">
                 {app.data.gallery &&
@@ -420,7 +421,7 @@ const DetailPage = ({ app }) => {
             <div className="flex flex-col items-center">
               <div className="text-5xl reviewtxt font-bold">{stars}</div>
               <div className="text-xss">
-                {Math.round(reviews / 100) / 10}K RATINGS
+                {t("store.kRatings", { count: Math.round(reviews / 100) / 10 })}
               </div>
             </div>
             <div className="text-xss ml-6">
@@ -474,7 +475,7 @@ const FrontPage = (props) => {
         src="img/store/lucacover.jpg"
         ext
       />
-      <div className="panelName absolute m-6 text-xl top-0">Home</div>
+      <div className="panelName absolute m-6 text-xl top-0">{t("store.home")}</div>
       <div className="w-full overflow-x-scroll noscroll overflow-y-hidden -mt-16">
         <div className="storeRibbon">
           {ribbon &&

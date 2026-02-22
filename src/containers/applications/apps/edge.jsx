@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon, ToolBar, LazyComponent } from "../../../utils/general";
 
 export const EdgeMenu = () => {
   const wnapp = useSelector((state) => state.apps.edge);
+  const { t } = useTranslation();
   const [url, setUrl] = useState("https://www.google.com/?igu=1");
   const [ierror, setErr] = useState(true);
   const [isTyping, setTyping] = useState(false);
@@ -118,14 +120,14 @@ export const EdgeMenu = () => {
         app={wnapp.action}
         icon={wnapp.icon}
         size={wnapp.size}
-        name="Browser"
+        name={t("edge.appName")}
         float
       />
       <div className="windowScreen flex flex-col">
         <div className="overTool flex">
           <Icon src={wnapp.icon} width={14} margin="0 6px" />
           <div className="btab">
-            <div>New Tab</div>
+            <div>{t("edge.newTab")}</div>
             <Icon
               fafa="faTimes"
               click={wnapp.action}
@@ -175,7 +177,7 @@ export const EdgeMenu = () => {
                 onChange={typing}
                 data-payload={3}
                 value={url}
-                placeholder="Type url or a query to search"
+                placeholder={t("edge.searchPlaceholder")}
                 type="text"
               />
               <Icon
@@ -239,9 +241,10 @@ export const EdgeMenu = () => {
                 x
               </div>
               <div className="text-gray-800 text-xs font-medium">
-                If it shows <b>"Refused to connect"</b>, then{" "}
-                <b>that website doesn't allow </b>
-                other websites to show their content. <b>I cannot fix it</b>.
+                {t("edge.refusedPrefix")} <b>"Refused to connect"</b>
+                {t("edge.refusedMiddle")}
+                <b>{t("edge.refusedNoEmbed")}</b>
+                {t("edge.refusedSuffix")} <b>{t("edge.refusedCannotFix")}</b>.
               </div>
             </div>
           </div>

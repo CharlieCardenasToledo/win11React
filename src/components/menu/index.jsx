@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Icon } from "../../utils/general";
+import { getLocalizedMenuLabel } from "../../utils/i18nLabels";
 import "./menu.scss";
 
 import * as Actions from "../../actions";
 
 export const ActMenu = () => {
+  const { t } = useTranslation();
   const menu = useSelector((state) => state.menus);
   const menudata = menu.data[menu.opts];
   const { abpos, isLeft } = useSelector((state) => {
@@ -85,7 +88,7 @@ export const ActMenu = () => {
                 ) : null}
               </div>
             ) : null}
-            <div className="nopt">{opt.name}</div>
+            <div className="nopt">{getLocalizedMenuLabel(opt.name, t)}</div>
             {opt.opts ? (
               <Icon
                 className="micon rightIcon"
